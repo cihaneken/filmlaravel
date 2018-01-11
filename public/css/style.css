@@ -1,0 +1,601 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);* {
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0E1127;
+  color: #fff;
+  font-size: 14px;
+}
+
+body a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+body ul,
+body ol {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+input {
+  color: #000;
+}
+
+.center {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.clear {
+  clear: both;
+}
+
+#header {
+  padding-top: 35px;
+  background: #422897;
+  background: -webkit-gradient(left top, right top, color-stop(0%, #422897), color-stop(100%, #874eab));
+  background: -webkit-gradient(linear, left top, right top, from(#422897), to(#874eab));
+  background: linear-gradient(to right, #422897 0%, #874eab 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
+}
+
+#header .top .logo {
+  float: left;
+  width: 200px;
+  font-weight: bold;
+  font-size: 31px;
+  margin-top: -5px;
+}
+
+#header .top .search {
+  float: left;
+  width: 574px;
+  text-align: center;
+  position: relative;
+}
+
+#header .top .search input {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  width: 300px;
+}
+
+#header .top .search button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  color: #777;
+  position: absolute;
+  margin-left: -35px;
+  margin-top: 9px;
+}
+
+#header .top .search button:hover {
+  color: #000;
+}
+
+#header .top .user {
+  float: right;
+  width: 250px;
+}
+
+#header .top .user .user-button {
+  padding: 6px 20px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: inline-block;
+  margin-left: 20px;
+  -webkit-transition: 300ms background, color;
+  transition: 300ms background, color;
+  font-weight: 600;
+}
+
+#header .top .user .giris:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#header .top .user .kayit {
+  background: #c9364f;
+  color: #fff;
+  border-color: #c9364f;
+}
+
+#header .top .user .kayit:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+#header .menu {
+  margin-top: 35px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#header .menu ul li {
+  float: left;
+  margin-right: 40px;
+}
+
+#header .menu ul li a {
+  line-height: 45px;
+  padding-top: 3px;
+  font-weight: 600;
+  display: inline-block;
+  border-bottom: 3px solid transparent;
+  -webkit-transition: 300ms border-color;
+  transition: 300ms border-color;
+}
+
+#header .menu ul li a.aktif,
+#header .menu ul li a:hover {
+  border-color: orange;
+}
+
+#header .menu ul li a i {
+  color: orange;
+}
+
+#header .speacial-menu {
+  display: none;
+}
+
+#header .speacial-menu ul li {
+  float: left;
+  margin-right: 20px;
+}
+
+#header .speacial-menu ul li a {
+  line-height: 50px;
+  color: #ddd;
+}
+
+#header .speacial-menu ul li a i {
+  color: orange;
+  margin-right: 5px;
+}
+
+#header .speacial-menu ul li a:hover {
+  color: #fff;
+}
+
+h1.renkli {
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+h1.renkli span {
+  display: inline;
+  padding-bottom: 13px;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #576ee2;
+}
+
+#slider .owl-nav {
+  display: none;
+}
+
+.film-afis {
+  position: relative;
+  opacity: 0.8;
+}
+
+.film-afis a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.film-afis:hover {
+  opacity: 1;
+}
+
+.film-afis img {
+  border-radius: 3px;
+  height: 243px;
+}
+
+.film-afis .puan {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 10px;
+  background: rgba(0, 0, 0, 0.56);
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.film-afis .golge {
+  position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), to(#000));
+  background: linear-gradient(transparent 50%, #000);
+  border-radius: 5px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 50px;
+}
+
+.film-afis .info {
+  position: relative;
+  bottom: 50px;
+  padding: 5px;
+}
+
+.film-afis .info .name {
+  font-weight: bold;
+}
+
+.film-afis .info .stars .light {
+  color: orange;
+}
+
+#homeView .left {
+  float: left;
+  width: 250px;
+}
+
+#homeView .left h1.renkli span {
+  border-color: #fa3556;
+}
+
+#homeView .left ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#homeView .left ul li a {
+  line-height: 40px;
+  padding-left: 10px;
+}
+
+#homeView .left ul li a i {
+  color: orange;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+#homeView .left ul.kategoriler li a {
+  display: block;
+  color: #ccc;
+}
+
+#homeView .left ul.kategoriler li a:hover {
+  color: #fff;
+}
+
+#homeView .left ul.kategoriler li a i {
+  float: right;
+  margin: 0;
+  color: #777;
+  margin-top: 10px;
+  font-size: 21px;
+}
+
+#homeView .left ul.kategoriler li a span {
+  color: #3e425d;
+}
+
+#homeView .filmler {
+  float: left;
+  margin-left: 20px;
+  width: 754px;
+}
+
+#homeView .filmler ul li {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 173px;
+  height: 260px;
+}
+
+#homeView .filmler ul li:nth-child(4n) {
+  margin-right: 0;
+}
+
+#homeView .filmler ul li img {
+  width: 100%;
+  height: 260px;
+}
+
+#izle {
+  position: relative;
+}
+
+#izle .izle-bg {
+  min-height: 610px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20px;
+  z-index: -1;
+  opacity: 0.1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#izle .izle-film {
+  z-index: 1;
+}
+
+#izle #player {
+  margin-top: 20px;
+}
+
+#izle #player .top .select {
+  float: left;
+  padding: 7px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin-right: 20px;
+  border-radius: 50px;
+  color: #ccc;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#izle #player .top .select:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#izle #player .player {
+  margin-top: 20px;
+}
+
+#izle #player .player iframe {
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.32);
+          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.32);
+  width: 100%;
+  height: 500px;
+}
+
+#izle #player .info {
+  background: #090D1C;
+  min-height: 300px;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#izle #player .info .left {
+  float: left;
+  margin-right: 20px;
+}
+
+#izle #player .info .left img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+#izle #player .info .right {
+  float: left;
+  width: 850px;
+}
+
+#izle #player .info .right .name h1 {
+  margin: 0;
+  font-size: 21px;
+  float: left;
+  margin-right: 20px;
+}
+
+#izle #player .info .right .name ul {
+  float: left;
+  margin-top: 2px;
+}
+
+#izle #player .info .right .name ul li {
+  float: left;
+  margin-right: 20px;
+  font-weight: 600;
+  color: #777;
+}
+
+#izle #player .info .right .name ul li span {
+  color: orange;
+}
+
+#izle #player .info .right .kats {
+  margin-top: 15px;
+}
+
+#izle #player .info .right .kats ul li {
+  float: left;
+  margin-right: 10px;
+}
+
+#izle #player .info .right .kats ul li a {
+  padding: 5px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  border-radius: 50px;
+  color: #ccc;
+  font-size: 13px;
+}
+
+#izle #player .info .right .kats ul li a:hover {
+  border-color: orange;
+  color: #fff;
+}
+
+#izle #player .info .right .konu {
+  margin-top: 25px;
+}
+
+#izle #player .info .right .konu h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+#izle #player .info .right .konu p {
+  color: #414f84;
+}
+
+#kategoriler {
+  margin-top: 50px;
+}
+
+#kategoriler h1 {
+  margin-bottom: 50px;
+  font-size: 21px;
+}
+
+#kategoriler h1 span {
+  border-color: green;
+}
+
+#kategoriler h1 .orange {
+  display: inline;
+  color: orange;
+}
+
+#kategoriler ul li {
+  width: 307px;
+  height: 173px;
+  float: left;
+  width: 30%;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  position: relative;
+}
+
+#kategoriler ul li:nth-child(3n) {
+  margin-right: 0;
+}
+
+#kategoriler ul li img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+#kategoriler ul li .name {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.62);
+  font-size: 21px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding-top: 70px;
+  -webkit-transition: 300ms background;
+  transition: 300ms background;
+}
+
+#kategoriler ul li .name:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#arsiv .left {
+  float: left;
+  width: 200px;
+}
+
+#arsiv .left ul li {
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+#arsiv .left ul li i {
+  width: 20px;
+}
+
+#arsiv .left .list a {
+  display: block;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+#arsiv .left .list a i {
+  width: 20px;
+  color: orange;
+}
+
+#arsiv .left .list a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#arsiv .sonuclar {
+  float: left;
+  margin-left: 20px;
+  width: 803px;
+}
+
+#arsiv .sonuclar h1 span {
+  border-color: #fa3556;
+}
+
+#arsiv .sonuclar ul li {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+  margin-bottom: 4%;
+  position: relative;
+}
+
+#arsiv .sonuclar ul li:nth-child(2n) {
+  margin-right: 0;
+}
+
+#arsiv .sonuclar ul li img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+#arsiv .sonuclar ul li .info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+#arsiv .sonuclar ul li .info .name {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+#arsiv .sonuclar ul li .info .name span {
+  color: orange;
+}
+
+#arsiv .sonuclar ul li .info .sene {
+  margin-bottom: 50px;
+  font-weight: 600;
+  color: #ccc;
+}
+
+#arsiv .sonuclar ul li .info .konu {
+  font-size: 13px;
+  color: #ccc;
+}
+
+#arsiv .sonuclar ul li .info:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+

@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+* {
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    list-style: none;
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    background: #0E1127; 
+    color:#fff; 
+    font-size: 14px;
+    a {
+        color:#fff;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none; 
+            color:#fff;
+        }
+    }
+    ul, ol {
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+input {
+    color:#000;
+}
+
+.center {
+    width: 1024px; 
+    margin: 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+#header {
+    padding-top: 35px;
+    background: rgba(66,40,151,1);
+    background: -moz-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(66,40,151,1)), color-stop(100%, rgba(135,78,171,1)));
+    background: -webkit-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: -o-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: -ms-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: linear-gradient(to right, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
+
+    .top {
+        .logo {
+            float:left; width: 200px; font-weight: bold; font-size: 31px;
+            margin-top: -5px;
+        }
+        
+        .search {
+            float:left; width: 574px; text-align: center;
+            position: relative;
+
+            input {
+                padding: 10px 20px; border-radius: 50px; border: none; width: 300px;
+            }
+
+            button {
+                background: transparent;
+                cursor: pointer;
+                border:none;
+                color:#777;
+                position: absolute;
+                margin-left: -35px;
+                margin-top: 9px;
+                &:hover {
+                    color:#000;
+                }
+            }
+        }
+
+        .user {
+            float: right; width: 250px;
+
+            .user-button {
+                padding: 6px 20px; border-radius: 50px; 
+                border: 2px solid rgba(255,255,255,0.7);
+                display: inline-block;
+                margin-left: 20px;
+                transition: 300ms background, color;
+                font-weight: 600;
+            }
+
+            .giris {
+                &:hover {
+                    background: rgba(255,255,255,0.3);
+                }
+            }
+
+            .kayit {
+                background: #c9364f; color:#fff;
+                border-color: #c9364f;
+                &:hover {
+                    border-color: rgba(255,255,255, 0.5);
+                }
+            }
+        }
+    }
+
+    .menu {
+        margin-top: 35px;
+        background: rgba(255,255,255,0.1);
+        ul li {
+            float: left; margin-right: 40px;
+            a {
+                line-height: 45px; padding-top: 3px;
+                font-weight: 600;
+                display: inline-block;
+                border-bottom: 3px solid transparent;
+                transition: 300ms border-color;
+                &.aktif, &:hover {
+                    border-color: orange;
+                }
+
+                i {
+                    color: orange;
+                }
+            }
+        }
+    }
+
+    .speacial-menu {
+        display: none;
+        ul li {
+            float: left; margin-right: 20px;
+            a {
+                line-height: 50px;
+                i {
+                    color: orange; margin-right: 5px;
+                }
+                color: #ddd;
+                &:hover {
+                    color:#fff;
+                }
+            }
+        }
+    }
+}
+
+h1.renkli {
+    font-size: 15px; font-weight: 600;
+    border-bottom: 3px solid rgba(255,255,255,.05);
+    padding-bottom: 15px;
+    span {
+        display: inline;
+        padding-bottom: 13px;
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+        border-bottom-color: #576ee2;
+    }
+}
+
+#slider {
+    .owl-nav {
+        display: none;
+    }
+
+   
+}
+.film-afis {
+    a {
+        color:#fff !important;
+        text-decoration: none !important; 
+    }
+    position: relative;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+    }
+    img {
+        border-radius: 3px;
+        height: 243px;
+    }
+
+    .puan {
+        position: absolute;
+        top: 10px; right: 10px; 
+        padding: 3px 10px; background: rgba(0,0,0,.56);
+        font-weight: bold; border-radius: 5px;
+    }
+
+    .golge {
+        position: absolute;
+        background: linear-gradient(transparent 50%, #000);
+        border-radius: 5px;
+        top:0; right:0; left:0; bottom:50px;
+    }
+
+    .info {
+        position: relative;
+        bottom: 50px;
+        padding: 5px;
+        .name {
+            font-weight: bold;
+        }
+        .stars {
+            .light {
+                color: orange;
+            }
+        }
+    }
+}
+#homeView {
+    .left {
+        float: left; width: 250px;
+        h1.renkli span {
+            border-color:#fa3556;
+        }
+
+        ul li {
+            border-bottom: 1px solid rgba(255,255,255,.05);
+           
+            a {
+                line-height: 40px;
+                padding-left: 10px;
+                i {
+                    color: orange; margin-right: 5px; font-size: 16px;
+                }
+            }
+            
+        }
+        ul.kategoriler {
+            li {
+                a {
+                    display: block; color:#ccc;
+                    &:hover {
+                        color:#fff;
+                    }
+                    i {
+                        float: right; margin:0; color:#777; margin-top: 10px; font-size: 21px;
+                    }
+                    
+                    span {
+                        color:#3e425d;
+                    }
+                }
+            }
+        }
+    }
+
+    .filmler {
+        float: left; margin-left: 20px; width: 754px;
+        ul li {
+            float: left; margin-right: 20px; margin-bottom: 20px;
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+            width: 173px; height: 260px;
+            img {
+                width: 100%; height: 260px;
+            }
+        }
+    }
+}
+
+#izle {
+    position: relative;
+    .izle-bg {
+        min-height: 610px; position: absolute;
+        left:0; right:0; top:-20px; z-index: -1; opacity: 0.1;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .izle-film {
+        z-index: 1;
+    }
+
+    #player {
+        margin-top: 20px;
+        .top {
+            .select {
+                float: left;
+                padding: 7px 20px;
+                border: 2px solid rgba(255,255,255,0.3); margin-right: 20px;
+                border-radius: 50px;
+                color:#ccc; font-weight: 600;
+                font-size: 13px;
+                cursor: pointer;
+                &:hover {
+                    background: rgba(255,255,255,0.3);
+                }
+            }
+        }
+
+        .player {
+            margin-top: 20px;
+
+            iframe {
+                border-radius: 10px;
+                box-shadow: 10px 10px 10px rgba(0,0,0,.32);
+                width: 100%; height: 500px;
+            }
+        }
+
+        .info {
+            background: #090D1C; min-height: 300px; margin-top: 20px; padding-top: 20px;
+            .left {
+                float: left; margin-right: 20px;
+                img {
+                    width: 150px; border-radius: 5px;
+                }
+            }
+            
+            .right {
+                float: left; width: 850px;
+                
+                .name {
+                    h1 {
+                        margin: 0; font-size: 21px; float: left;
+                        margin-right: 20px; 
+                    }
+                    ul {
+                        float: left;margin-top: 2px;
+                        li {
+                            float: left; margin-right: 20px; font-weight: 600; color:#777;
+                            span {
+                                color: orange;
+                            }
+                        }
+                    }
+                }
+
+                .kats {
+                    margin-top: 15px;
+                    ul {
+                        li {
+                            float:left; margin-right: 10px; 
+                            a {
+                                padding: 5px 20px; border: 2px solid rgba(255,255,255,0.1);
+                                display: inline-block; border-radius: 50px; color:#ccc; font-size: 13px;
+                                &:hover {
+                                    border-color:orange; color:#fff;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .konu {
+                    margin-top: 25px;
+                    h3 {
+                        margin: 0;
+                        margin-bottom: 10px;
+                        color:#aaa;
+                        font-size: 14px;
+                    }
+                    p {
+                        color:#414f84;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#kategoriler {
+    margin-top: 50px;
+    h1 {
+        margin-bottom: 50px; font-size: 21px;
+        span {
+            border-color: green;
+        }
+        .orange {
+            display: inline; color: orange;
+        }
+    }
+    ul li {
+        width: 307px;
+        height: 173px;
+        float: left; 
+        width: 30%; margin-bottom: 50px;
+        margin-right: 50px;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+        img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        position: relative;
+
+        .name {
+            position: absolute; top:0; right:0; bottom:0; left:0;
+            text-align: center; background: rgba(0,0,0,.62);
+            font-size: 21px; font-weight: bold;
+            border-radius: 5px;
+            padding-top: 70px;
+            transition: 300ms background;
+
+            &:hover {
+                background: rgba(0,0,0,.3);
+            }
+        }
+    }
+}
+
+#arsiv {
+    .left {
+        float: left;
+        width: 200px;
+
+        ul li {
+            padding: 5px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+            i {
+                width: 20px;
+            }
+        }
+
+        .list {
+            a {
+                display: block; padding: 5px 10px;
+                background: rgba(255,255,255,.1);
+                margin-right: 5px; margin-bottom: 5px;
+                border-radius: 3px;
+                i {
+                    width: 20px; color:orange;
+                }
+
+                &:hover {
+                    background: rgba(255, 255, 255,.2);
+                }
+            }
+        }
+    }
+
+    .sonuclar {
+        float: left;
+        margin-left: 20px;
+        width: 803px;
+        h1 span {
+            border-color:#fa3556;
+        }
+
+        ul li {
+            float: left;
+            width: 48%;
+            margin-right: 4%;
+            margin-bottom: 4%;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+            img {
+                width: 100%; border-radius: 5px;
+            }
+
+            position: relative;
+
+            .info {
+                position: absolute; 
+                top:0; right:0; left:0; bottom:0;
+                padding: 10px; background: rgba(0,0,0,.75);
+                border-radius: 5px;
+                .name {
+                    font-size: 17px; font-weight: bold; margin-bottom: 6px;
+                    span {
+                        color:orange;
+                    }
+                }
+                .sene {
+                    margin-bottom: 50px; font-weight: 600;
+                    color:#ccc;
+                }
+                .konu {
+                    font-size: 13px; color:#ccc;
+                }
+
+                &:hover {
+                    background: rgba(0,0,0,.4);
+                }
+            }
+        }
+    }
+}

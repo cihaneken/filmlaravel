@@ -7,7 +7,7 @@
     <div id="kategoriler">
         <div class="center">
             <h1 class="renkli"> <span>KATEGORİLER</span> </h1>
-            <ul>
+            <ul class="kat_films">
                 @foreach($kategoriler as $kategori)
                     <li>
                         <a href="{{ url('kategori/' . $kategori->slug) }}">

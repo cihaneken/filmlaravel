@@ -30,7 +30,7 @@
                 <div class="info">
                     <div class="center">
                         <div class="left">
-                            <img src="{{ $movie->poster_url }}" alt="">
+                            <img src="{{ $movie->mini_poster() }}" alt="">
                         </div>
                         <div class="right">
                             <div class="name">
@@ -40,6 +40,7 @@
                                     <li>Yapım Yılı: <span>{{ $movie->year }}</span></li>
                                     <li>Süre: <span>{{ $movie->duration ? $movie->duration : "Bilinmiyor" }}</span></li>
                                     <li>Puan: <span>{{ $movie->puan }}</span></li>
+                                    <li>İzlenme: <span>{{ number_format($movie->seen, 0, ",", ".") }}</span></li>
                                     <div class="clear"></div>
                                 </ul>
                                 <div class="clear"></div>
@@ -69,6 +70,41 @@
                         <div class="clear"></div>
                     </div>
                 </div>
+        </div>
+    </div>
+    <div id="yorumlar">
+        <div class="center">
+            <div class="yorumlar">
+                <h1 class="renkli"><span>Film hakkında görüşlerinizi paylaşın.</span></h1>
+
+                <div class="yorum_yap">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Yorum yazınız.."></textarea>
+                    <button>Gönder</button>
+                </div>
+
+                <ul>
+                    @for($i = 0; $i < 10; $i++)
+                    <li>
+                        <div class="left">
+                            <img src="https://cdn.dribbble.com/users/935926/avatars/small/dfbb2b492a5e69be8b8a31b63bdcee01.jpg" alt="">
+                        </div>
+                        <div class="right">
+                            <div class="top">
+                                <span class="name">Ziyaretçi</span> <div class="tarih">3 saat önce</div>
+                            </div>
+                            <p class="mesaj">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Modi reprehenderit aspernatur voluptas, facere veniam autem ex similique eveniet, 
+                                nulla quas enim assumenda vel libero eius nisi iure possimus molestias minus?
+                            </p>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                    @endfor
+                </ul>
+            </div>
+
+            <div class="clear"></div>
         </div>
     </div>
 </div>

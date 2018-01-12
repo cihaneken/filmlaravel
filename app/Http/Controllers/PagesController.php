@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
     
     public function arsiv()
     {
+        $page = @$_GET['page']  ? $_GET['page'] : 1;
+
         $data = [];
+
+        $data['page'] = $page;
+
         $data['kategoriler'] = Category::orderBy('name', 'ASC')->get();
         
         $sirala = @$_GET['sirala'] ? $_GET['sirala'] : 'puan';
@@ -54,7 +61,9 @@ class PagesController extends Controller
             $filmler = $filmler->where('categories', 'like', '%'.$_kat.'%');
         }
 
-        $data['filmler'] = $filmler->get();
+        $data['filmler'] = ($filmler->paginate(10));
+        
+
 
         $data['sirala'] = $sirala;
         
@@ -73,10 +82,15 @@ class PagesController extends Controller
     public function izle($id, $slug = false)
     {
         $movie = Movie::find($id);
-        $movie->seen++;
-        $movie->save();
         if (!$movie)
             abort(404);
+
+        $movie->seen++;
+        $movie->save();
+
+        if (Auth::check())
+            Auth::user()->izledi($movie->id);
+        
 
         $data = [];
 
@@ -102,17 +116,94 @@ class PagesController extends Controller
 
         $siralaType = "DESC";
 
-        $filmler = DB::table('category_connector')->where('category_id', $kategori->id)->get();
-
-        $tmp = [];
-
-        foreach ($filmler as $film) {
-            $tmp[] = Movie::find($film->movie_id);
-        }
-
+        $filmler = Movie::where('categories', 'like', '%'.$kategori->slug.'%')->paginate(12);
+        
         $data['kategori'] = $kategori;
-        $data['filmler'] = $tmp;
+        $data['filmler'] = $filmler;
 
         return view("kategori", $data);
+    }
+
+    public function giris()
+    {
+        $data = [];
+        $data['film'] = Movie::inRandomOrder()->first();
+
+        return view("auth.login", $data);
+    }
+
+    public function giris_post(Request $req)
+    {
+
+        $remember = isset($req->remember) ? 'on' : null;
+
+        if (Auth::attempt(['username' => $req->username, 'password' => $req->password], $remember)) {
+            // Authentication passed...
+            return redirect("auth/profil");
+        }else{
+            $data = [];
+            $data['film'] = Movie::inRandomOrder()->first();
+            $data['error'] = "Bilgileriniz hatalı.";
+            return view("auth.login", $data);
+        }
+    }
+
+    public function kayit()
+    {
+        $data = [];
+        $data['film'] = Movie::inRandomOrder()->first();
+
+        return view("auth.register", $data);
+    }
+
+    public function kayit_post(Request $req)
+    {
+        
+        $data = [];
+        $data['film'] = Movie::inRandomOrder()->first();
+
+        if (!$req->username || !$req->email || !$req->password)
+            return view("auth.register", ['error' => 'Lütfen boş alan bırakma.', 'film' => $data['film']]);
+        
+        if (strlen($req->username) < 4)
+            return view("auth.register", ['error' => 'Kullanıcı adı en az 4 karakter olmalı.', 'film' => $data['film']]);
+
+        if (strlen($req->password) < 4)
+            return view("auth.register", ['error' => 'Şifre en az 4 karakter olmalı.', 'film' => $data['film']]);
+
+        $kontrol = User::where('username', $req->username)->first();
+        if ($kontrol)
+            return view("auth.register", ['error' => 'Bu kullanıcı adı sistemimizde mevcut.', 'film' => $data['film']]);
+
+        $user = new User;
+        $user->username = $req->username;
+        $user->slug = str_slug($req->username, "-");
+        $user->password = bcrypt($req->password);
+        $user->email = $req->email;
+        $user->avatar = env("DEFAULT_AVATAR");
+        $user->name = "Kullanıcı";
+        $user->is_admin = 0;
+
+        if (!$user->save())
+            return view("auth.register", ['error' => 'Veritabanı hatası.']);
+        
+        if (Auth::attempt(['username' => $req->username, 'password' => $req->password])) {
+            // Authentication passed...
+            return redirect("auth/profil");
+        }
+    }
+
+    public function profil()
+    {
+        $data = [];
+        $data['user'] = Auth::user();
+        return view("auth.profil", $data);
+    }
+
+    public function profil_public($slug)
+    {
+        $data = [];
+        $data['user'] = User::where('slug', $slug)->first();
+        return view("auth.profil", $data);
     }
 }

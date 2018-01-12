@@ -32,8 +32,19 @@
                 </div>
                 
                 <div class="user">
-                    <a href="#" class="user-button giris">Giriş Yap</a>
-                    <a href="#" class="user-button kayit">Kayıt Ol</a>
+                    @if(!Auth::check())
+                    <a href="{{ url('/auth/giris') }}" class="user-button giris">Giriş Yap</a>
+                    <a href="{{ url('/auth/kayit') }}" class="user-button kayit">Kayıt Ol</a>
+                    @else
+                    <div class="giris_yapildi">
+                        <a href="{{ url('auth/profil') }}">
+                            <div class="name">
+                                {{ Auth::user()->username }} <i class="fa fa-angle-right"></i>
+                            </div>
+                            <img src="{{ Auth::user()->avatar }}" alt="">
+                        </a>
+                    </div>
+                    @endif
                 </div>
 
                 <div class="clear"></div>
@@ -45,9 +56,9 @@
                         <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Anasayfa</a></li>
                         <li><a href="{{ url('/arsiv') }}"><i class="fa fa-archive"></i> Film Arşivi</a></li>
                         <li><a href="{{ url('/kategoriler') }}"><i class="fa fa-bars"></i> Kategoriler</a></li>
-                        <li><a href="#"><i class="fa fa-diamond"></i> Seçtiklerimiz</a></li>
-                        <li><a href="#">Yerli Filmler</a></li>
-                        <li><a href="#">Yabancı Filmler</a></li>
+                        <li><a href="{{ url('/listeler') }}"><i class="fa fa-diamond"></i> Listeler</a></li>
+                        <li><a href="{{ url('/rastgele') }}"><i class="fa fa-random"></i> Rastgele</a></li>
+                        <li><a href="{{ url('/iletisim') }}"><i class="fa fa-envelope"></i> İletişim</a></li>
 
                         <div class="clear"></div>
                     </ul>

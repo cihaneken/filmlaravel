@@ -104,17 +104,31 @@ input {
                     border-color: rgba(255,255,255, 0.5);
                 }
             }
+
+            .giris_yapildi {
+                img {
+                    float: right;
+                    width: 40px; height: 40px; border-radius: 40px;
+                }
+                .name {
+                    float: right;  line-height: 40px; margin-left: 10px; font-weight: bold;
+                    font-size: 21px; 
+                }
+            }
         }
     }
 
     .menu {
         margin-top: 35px;
         background: rgba(255,255,255,0.1);
+        text-align: center;
         ul li {
-            float: left; margin-right: 40px;
+            float: none; 
+            display: inline-block;
             a {
                 line-height: 45px; padding-top: 3px;
                 font-weight: 600;
+                padding-left: 20px; padding-right: 20px;
                 display: inline-block;
                 border-bottom: 3px solid transparent;
                 transition: 300ms border-color;
@@ -158,6 +172,14 @@ h1.renkli {
         border-bottom-width: 3px;
         border-bottom-color: #576ee2;
     }
+
+    a {
+        float: right; color:orange;
+        transition: 500ms color;
+        &:hover {
+            color:#fff;
+        }
+    }
 }
 
 #slider {
@@ -168,7 +190,9 @@ h1.renkli {
    
 }
 .film-afis {
+    
     a {
+        
         color:#fff !important;
         text-decoration: none !important; 
     }
@@ -186,14 +210,14 @@ h1.renkli {
         position: absolute;
         top: 10px; right: 10px; 
         padding: 3px 10px; background: rgba(0,0,0,.56);
-        font-weight: bold; border-radius: 5px;
+        font-weight: bold; border-radius: 52px;
     }
 
     .golge {
         position: absolute;
         background: linear-gradient(transparent 50%, #000);
         border-radius: 5px;
-        top:0; right:0; left:0; bottom:50px;
+        top:0; right:0; left:0; bottom:52px;
     }
 
     .info {
@@ -374,7 +398,7 @@ h1.renkli {
             display: inline; color: orange;
         }
     }
-    ul li {
+    ul.kat_films li {
         width: 307px;
         height: 173px;
         float: left; 
@@ -443,9 +467,10 @@ h1.renkli {
             border-color:#fa3556;
         }
 
-        ul li {
+        ul.sonuclar_ul li.sonuclar_li {
             float: left;
             width: 48%;
+            height:217px;
             margin-right: 4%;
             margin-bottom: 4%;
             &:nth-child(2n) {
@@ -460,7 +485,7 @@ h1.renkli {
             .info {
                 position: absolute; 
                 top:0; right:0; left:0; bottom:0;
-                padding: 10px; background: rgba(0,0,0,.75);
+                padding: 10px; background: rgba(0,0,0,.55);
                 border-radius: 5px;
                 .name {
                     font-size: 17px; font-weight: bold; margin-bottom: 6px;
@@ -478,6 +503,297 @@ h1.renkli {
 
                 &:hover {
                     background: rgba(0,0,0,.4);
+                }
+            }
+        }
+
+        
+    }
+}
+.sayfalama {
+    margin-bottom: 50px;
+    ul li {
+        float: left; margin-right: 10px; margin-bottom: 10px;
+        a {
+            display: inline-block; 
+            border-radius: 3px; background: #1e2346;
+            font-weight: 600; color:#fff; padding: 3px 0px;
+            text-align: center; width: 30px;
+
+            &.aktif {
+                background: #fa3556;
+            }
+        }
+    }
+}
+#yorumlar {
+    background: #090D1C; border-top: 1px solid rgba(255,255,255,0.05);
+    .yorumlar {
+        min-height: 300px;
+        float: left;
+        width: 600px;
+        .yorum_yap {
+            textarea {
+                width: 100%; border: 3px solid rgb(46, 59, 107); background: transparent;
+                border-radius: 10px; height: 70px;
+                padding: 10px; resize: none;
+            }
+
+            position: relative;
+
+            button {
+                position: absolute; top: 20px; right: 20px;
+                color:#fff; border: none; border-radius: 5px; padding: 5px 10px; background: #3988FF; font-weight: bold;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+
+        ul {
+            margin-top: 20px;
+
+            li {
+                margin-bottom: 10px; padding-bottom: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255,.05);
+                .left {
+                    float: left; margin-right: 20px;
+                    img {
+                        width: 50px; height: 50px; border-radius: 50px;
+                        border: 2px solid rgba(255, 255, 255, .4);
+                    }
+                }
+
+                .right {
+                    float: left; width: 530px;
+
+                    .top {
+                        margin-bottom: 15px;
+                        .name {
+                            font-weight: bold; color:orange; float:left; margin-right: 10px;
+                        }
+                        .tarih {
+                            color:#ccc;
+                        }
+                    }
+
+                    p {
+                        color:#65709a;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#auth {
+    margin-top: 50px;
+    z-index: 1;
+    h1 {
+        color:#fff; font-size: 21px;
+    }
+    .panel {
+        background: transparent; border: none;
+        width: 100%;
+
+        .panel-heading {
+            background: transparent; border: none;
+        }
+    }
+}
+
+.auth-bg {
+    opacity: 0.1;
+    min-height: 800px;
+    position: absolute;
+    width: 100%;
+    left:0; right:0; top:165px; z-index: -1;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+#profil {
+    margin-top: 30px;
+    .top {
+        h1 {
+            font-size: 21px; 
+        }
+        .avatar {
+            float:left;
+            img {
+                width: 110px; height: 110px; 
+                border: 10px solid rgba(0,0, 0, .4);
+                border-radius: 10px;
+            }
+        }
+
+        ul.info {
+            float:left; 
+            width: 910px;
+            li.info {
+                float:left; padding: 0 20px; text-align: center;
+                height: 110px;
+                .text {
+                    margin-top: 25px; font-size: 17px;
+                    color:#959dd8;
+                }
+                span {
+                    font-size: 21px; color: orange;
+                    font-weight: bold;
+                }
+
+                &:last-child {
+                    float:right;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+#listeler {
+    .slogan {
+        text-align: center;
+        margin-top: 30px; margin-bottom: 30px; font-size: 21px; font-weight: lighter;
+        color:#824baa;
+    }
+    .liste_vitrin {
+        position: relative;
+        min-height: 400px;
+        box-shadow: 5px 15px 5px rgba(0,0,0,.36);
+        border-radius: 10px;
+        margin-bottom: 40px;
+        .bg {
+            position: absolute;
+            top:0; right:0; left:0; bottom:0;
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 5px;
+        }
+
+        .left {
+            float:left;
+            .baslik {
+                font-size: 21px; font-weight: bold;
+                margin-left: 20px;
+            }
+
+            .puan {
+                color: orange;
+                font-weight: bold; margin-bottom: 20px;
+                margin-left: 20px;
+            }
+        }
+
+        .right {
+            float: right; margin-right: 20px;
+            img {
+                width:50px; height:50px; border-radius: 50px;
+            }
+            span {
+                font-size: 21px;  margin-left: 10px; line-height: 50px;
+            }
+        }
+
+        .filmler {
+            text-align: center;
+            .puan {
+                color:#fff;
+            }
+            li {
+                opacity: 0.66;
+                float: none;
+                display: inline-block;
+                margin-left: 20px;
+            }
+        }
+
+        .kesfet {
+            text-align: center; margin-top: 10px; margin-bottom: 20px;
+            a {
+                padding: 10px 30px; border: 3px solid #3988FF; border-radius: 50px;  font-size: 21px; 
+                background: transparent;
+                transition: 500ms background;
+                &:hover {
+                    background: #3988FF;
+                }
+            }
+        }
+    }
+}
+
+#liste {
+    .head {
+        margin-top: 40px; margin-bottom: 40px;
+        .left {
+            float: left;
+            .name {
+                font-size: 21px; font-weight: bold;
+            }
+            .puan {
+                
+                span {
+                    color: orange;font-weight: bold;
+                }
+            }
+        }
+
+        .right {
+            float: right;
+            img {
+                float: left; width:50px; height:50px; border-radius: 50px;
+            }
+            .name {
+                float:right; margin-left: 20px; font-size: 21px; line-height: 50px;
+            }
+        }
+    }
+
+    .film {
+        position: relative;
+        height: 265px;
+        overflow: hidden;
+        .bilgi {
+            position: absolute;
+            top:0; right:0; left:0; bottom:0;
+            padding: 20px;
+            background: rgba(0,0,0,.76);
+
+            .left {
+                float:left;
+                img {
+                    width: 150px; border-radius: 5px;
+                }
+            }
+
+            .right {
+                float: right;
+                width: 800px;
+                .name {
+                    font-size: 21px; font-weight: bold;
+
+                    span {
+                        color: orange;
+                    }
+                }
+
+                .kategoriler {
+                    margin-top:15px;
+                    margin-bottom:15px;
+                    a {
+                        margin-right: 10px; padding: 5px 20px; border: 2px solid rgba(255, 255, 255, .3);
+                        font-size:13px;
+                        border-radius: 50px;
+                        transition: 350ms border-color;
+                        &:hover {
+                            border-color:#fff;
+                        }
+                    }
+                }
+                
+                .konu {
+                    color: #808a9e;
                 }
             }
         }

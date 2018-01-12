@@ -28,15 +28,15 @@
         </div>
 
         <div class="sonuclar">
-            <h1 class="renkli"><span>SONUÇLAR ({{ count($filmler) }})</span></h1>
+            <h1 class="renkli"><span>SONUÇLAR ({{ ($filmler->total()) }})</span></h1>
 
-            <ul>
+            <ul class="sonuclar_ul">
                 @foreach($filmler as $film)
-                <li>
+                <li class="sonuclar_li">
                     <a href="{{ $film->url() }}">
                         <img src="{{ $film->mini_bg() }}" alt="">
                         <div class="info">
-                            <div class="name">{{ strlen($film->name) > 35 ? mb_substr($film->name, 0, 33, 'utf-8').".." : $film->name }} <span>{{ $film->puan }}</span></div>
+                            <div class="name">{{ $film->name(35) }} <span>{{ $film->puan }}</span></div>
                             <div class="sene">
                                 {{ $film->year }} | 
                                 @foreach($film->categories() as $kat)
@@ -48,13 +48,23 @@
                     </a>
                 </li>
                 @endforeach
-
+                <div class="clear"></div>
                 @if (!count($filmler))
                     Hiç film bulunamadı. Filtre değiştirmeyi deneyin.
                     <br><br>
                     <a href="{{url('/arsiv')}}"> Tercihleri Sıfırlamak İçin Tıklayınız</a>
                 @endif
             </ul>
+
+            <div class="sayfalama">
+                <ul>
+                    @for($i = 1; $i <= $filmler->lastPage(); $i++)
+                    <li><a href="{{ '?kats=' . $_kats . '&sirala=' . $sirala . '&page='. $i }}" class="{{ $i == $filmler->currentPage() ? 'aktif' : null }}">{{ $i }}</a></li>
+                    @endfor
+
+                    <div class="clear"></div>
+                </ul>
+            </div>
         </div>
         <div class="clear"></div>
     </div>

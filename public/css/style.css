@@ -118,20 +118,38 @@ input {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+#header .top .user .giris_yapildi img {
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+}
+
+#header .top .user .giris_yapildi .name {
+  float: right;
+  line-height: 40px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 21px;
+}
+
 #header .menu {
   margin-top: 35px;
   background: rgba(255, 255, 255, 0.1);
+  text-align: center;
 }
 
 #header .menu ul li {
-  float: left;
-  margin-right: 40px;
+  float: none;
+  display: inline-block;
 }
 
 #header .menu ul li a {
   line-height: 45px;
   padding-top: 3px;
   font-weight: 600;
+  padding-left: 20px;
+  padding-right: 20px;
   display: inline-block;
   border-bottom: 3px solid transparent;
   -webkit-transition: 300ms border-color;
@@ -185,6 +203,17 @@ h1.renkli span {
   border-bottom-color: #576ee2;
 }
 
+h1.renkli a {
+  float: right;
+  color: orange;
+  -webkit-transition: 500ms color;
+  transition: 500ms color;
+}
+
+h1.renkli a:hover {
+  color: #fff;
+}
+
 #slider .owl-nav {
   display: none;
 }
@@ -215,7 +244,7 @@ h1.renkli span {
   padding: 3px 10px;
   background: rgba(0, 0, 0, 0.56);
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 52px;
 }
 
 .film-afis .golge {
@@ -226,7 +255,7 @@ h1.renkli span {
   top: 0;
   right: 0;
   left: 0;
-  bottom: 50px;
+  bottom: 52px;
 }
 
 .film-afis .info {
@@ -464,7 +493,7 @@ h1.renkli span {
   color: orange;
 }
 
-#kategoriler ul li {
+#kategoriler ul.kat_films li {
   width: 307px;
   height: 173px;
   float: left;
@@ -474,16 +503,16 @@ h1.renkli span {
   position: relative;
 }
 
-#kategoriler ul li:nth-child(3n) {
+#kategoriler ul.kat_films li:nth-child(3n) {
   margin-right: 0;
 }
 
-#kategoriler ul li img {
+#kategoriler ul.kat_films li img {
   width: 100%;
   border-radius: 5px;
 }
 
-#kategoriler ul li .name {
+#kategoriler ul.kat_films li .name {
   position: absolute;
   top: 0;
   right: 0;
@@ -499,7 +528,7 @@ h1.renkli span {
   transition: 300ms background;
 }
 
-#kategoriler ul li .name:hover {
+#kategoriler ul.kat_films li .name:hover {
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -546,56 +575,448 @@ h1.renkli span {
   border-color: #fa3556;
 }
 
-#arsiv .sonuclar ul li {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li {
   float: left;
   width: 48%;
+  height: 217px;
   margin-right: 4%;
   margin-bottom: 4%;
   position: relative;
 }
 
-#arsiv .sonuclar ul li:nth-child(2n) {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li:nth-child(2n) {
   margin-right: 0;
 }
 
-#arsiv .sonuclar ul li img {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li img {
   width: 100%;
   border-radius: 5px;
 }
 
-#arsiv .sonuclar ul li .info {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.55);
   border-radius: 5px;
 }
 
-#arsiv .sonuclar ul li .info .name {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .name {
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 6px;
 }
 
-#arsiv .sonuclar ul li .info .name span {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .name span {
   color: orange;
 }
 
-#arsiv .sonuclar ul li .info .sene {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .sene {
   margin-bottom: 50px;
   font-weight: 600;
   color: #ccc;
 }
 
-#arsiv .sonuclar ul li .info .konu {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .konu {
   font-size: 13px;
   color: #ccc;
 }
 
-#arsiv .sonuclar ul li .info:hover {
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info:hover {
   background: rgba(0, 0, 0, 0.4);
+}
+
+.sayfalama {
+  margin-bottom: 50px;
+}
+
+.sayfalama ul li {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.sayfalama ul li a {
+  display: inline-block;
+  border-radius: 3px;
+  background: #1e2346;
+  font-weight: 600;
+  color: #fff;
+  padding: 3px 0px;
+  text-align: center;
+  width: 30px;
+}
+
+.sayfalama ul li a.aktif {
+  background: #fa3556;
+}
+
+#yorumlar {
+  background: #090D1C;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#yorumlar .yorumlar {
+  min-height: 300px;
+  float: left;
+  width: 600px;
+}
+
+#yorumlar .yorumlar .yorum_yap {
+  position: relative;
+}
+
+#yorumlar .yorumlar .yorum_yap textarea {
+  width: 100%;
+  border: 3px solid #2e3b6b;
+  background: transparent;
+  border-radius: 10px;
+  height: 70px;
+  padding: 10px;
+  resize: none;
+}
+
+#yorumlar .yorumlar .yorum_yap button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background: #3988FF;
+  font-weight: bold;
+}
+
+#yorumlar .yorumlar .yorum_yap button:hover {
+  opacity: 0.8;
+}
+
+#yorumlar .yorumlar ul {
+  margin-top: 20px;
+}
+
+#yorumlar .yorumlar ul li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#yorumlar .yorumlar ul li .left {
+  float: left;
+  margin-right: 20px;
+}
+
+#yorumlar .yorumlar ul li .left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+#yorumlar .yorumlar ul li .right {
+  float: left;
+  width: 530px;
+}
+
+#yorumlar .yorumlar ul li .right .top {
+  margin-bottom: 15px;
+}
+
+#yorumlar .yorumlar ul li .right .top .name {
+  font-weight: bold;
+  color: orange;
+  float: left;
+  margin-right: 10px;
+}
+
+#yorumlar .yorumlar ul li .right .top .tarih {
+  color: #ccc;
+}
+
+#yorumlar .yorumlar ul li .right p {
+  color: #65709a;
+}
+
+#auth {
+  margin-top: 50px;
+  z-index: 1;
+}
+
+#auth h1 {
+  color: #fff;
+  font-size: 21px;
+}
+
+#auth .panel {
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+
+#auth .panel .panel-heading {
+  background: transparent;
+  border: none;
+}
+
+.auth-bg {
+  opacity: 0.1;
+  min-height: 800px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 165px;
+  z-index: -1;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+#profil {
+  margin-top: 30px;
+}
+
+#profil .top h1 {
+  font-size: 21px;
+}
+
+#profil .top .avatar {
+  float: left;
+}
+
+#profil .top .avatar img {
+  width: 110px;
+  height: 110px;
+  border: 10px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+#profil .top ul.info {
+  float: left;
+  width: 910px;
+}
+
+#profil .top ul.info li.info {
+  float: left;
+  padding: 0 20px;
+  text-align: center;
+  height: 110px;
+}
+
+#profil .top ul.info li.info .text {
+  margin-top: 25px;
+  font-size: 17px;
+  color: #959dd8;
+}
+
+#profil .top ul.info li.info span {
+  font-size: 21px;
+  color: orange;
+  font-weight: bold;
+}
+
+#profil .top ul.info li.info:last-child {
+  float: right;
+  padding-right: 0;
+}
+
+#listeler .slogan {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: lighter;
+  color: #824baa;
+}
+
+#listeler .liste_vitrin {
+  position: relative;
+  min-height: 400px;
+  -webkit-box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.36);
+          box-shadow: 5px 15px 5px rgba(0, 0, 0, 0.36);
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+#listeler .liste_vitrin .bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.1;
+  border-radius: 5px;
+}
+
+#listeler .liste_vitrin .left {
+  float: left;
+}
+
+#listeler .liste_vitrin .left .baslik {
+  font-size: 21px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+#listeler .liste_vitrin .left .puan {
+  color: orange;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+#listeler .liste_vitrin .right {
+  float: right;
+  margin-right: 20px;
+}
+
+#listeler .liste_vitrin .right img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+#listeler .liste_vitrin .right span {
+  font-size: 21px;
+  margin-left: 10px;
+  line-height: 50px;
+}
+
+#listeler .liste_vitrin .filmler {
+  text-align: center;
+}
+
+#listeler .liste_vitrin .filmler .puan {
+  color: #fff;
+}
+
+#listeler .liste_vitrin .filmler li {
+  opacity: 0.66;
+  float: none;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+#listeler .liste_vitrin .kesfet {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#listeler .liste_vitrin .kesfet a {
+  padding: 10px 30px;
+  border: 3px solid #3988FF;
+  border-radius: 50px;
+  font-size: 21px;
+  background: transparent;
+  -webkit-transition: 500ms background;
+  transition: 500ms background;
+}
+
+#listeler .liste_vitrin .kesfet a:hover {
+  background: #3988FF;
+}
+
+#liste .head {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#liste .head .left {
+  float: left;
+}
+
+#liste .head .left .name {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+#liste .head .left .puan span {
+  color: orange;
+  font-weight: bold;
+}
+
+#liste .head .right {
+  float: right;
+}
+
+#liste .head .right img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+#liste .head .right .name {
+  float: right;
+  margin-left: 20px;
+  font-size: 21px;
+  line-height: 50px;
+}
+
+#liste .film {
+  position: relative;
+  height: 265px;
+  overflow: hidden;
+}
+
+#liste .film .bilgi {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.76);
+}
+
+#liste .film .bilgi .left {
+  float: left;
+}
+
+#liste .film .bilgi .left img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+#liste .film .bilgi .right {
+  float: right;
+  width: 800px;
+}
+
+#liste .film .bilgi .right .name {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+#liste .film .bilgi .right .name span {
+  color: orange;
+}
+
+#liste .film .bilgi .right .kategoriler {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#liste .film .bilgi .right .kategoriler a {
+  margin-right: 10px;
+  padding: 5px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-size: 13px;
+  border-radius: 50px;
+  -webkit-transition: 350ms border-color;
+  transition: 350ms border-color;
+}
+
+#liste .film .bilgi .right .kategoriler a:hover {
+  border-color: #fff;
+}
+
+#liste .film .bilgi .right .konu {
+  color: #808a9e;
 }
 

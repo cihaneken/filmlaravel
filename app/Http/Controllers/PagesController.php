@@ -7,6 +7,7 @@ use App\Category;
 use App\Movie;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Actor;
 use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
@@ -85,12 +86,13 @@ class PagesController extends Controller
         if (!$movie)
             abort(404);
 
+        /*
         $movie->seen++;
         $movie->save();
 
         if (Auth::check())
             Auth::user()->izledi($movie->id);
-        
+        */
 
         $data = [];
 
@@ -205,5 +207,23 @@ class PagesController extends Controller
         $data = [];
         $data['user'] = User::where('slug', $slug)->first();
         return view("auth.profil", $data);
+    }
+
+    public function ara()
+    {
+        $q = @ $_GET['q'];
+
+        if (!$q || strlen($q) < 3) return redirect( url('/') );
+
+        $filmler = Movie::where('name', 'like', "%$q%")->orWhere('orj_name', 'like', "%$q%")->get();
+        $oyuncular = Actor::where('name', 'like', "%$q%")->get();
+
+        $data = [
+            'filmler' => $filmler,
+            'oyuncular' => $oyuncular,
+            'q' => $q
+        ];
+
+        return view("ara", $data);
     }
 }

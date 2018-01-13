@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Movie;
 use App\Category;
 use App\Country;
+use App\Actor;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -98,20 +100,51 @@ class MovieController extends Controller
             ]);
         }
 
+        // oyuncular
+        
+        $url = "https://api.themoviedb.org/3/movie/".$tmdb_id."/credits?api_key=" . env("TMDB_API_KEY");
+        $req = $client->get($url);
+        $res = $req->getBody();
+
+        $oyuncular = json_decode($res);
+
+        foreach ($oyuncular->cast as $oyuncu) {
+            
+            $actor = Actor::where('tmdb_id', $oyuncu->id)->first();
+            if (!$actor){
+                $actor = new Actor;
+                $actor->tmdb_id = $oyuncu->id;
+                $actor->gender = $oyuncu->gender;
+                $actor->name = $oyuncu->name;
+                $actor->slug = str_slug($oyuncu->name, "-");
+                $actor->profile_path = $oyuncu->profile_path;
+                $actor->save();
+            }
+
+            DB::table('actor_connector')->insert([
+                'actor_id' => $actor->id,
+                'movie_id' => $movie->id,
+                'character' => $oyuncu->character,
+                'order' => $oyuncu->order
+            ]);
+
+        }
+
+        
+
         return $movie;
     }
 
     public function addUpComings()
     {
         $client = new \GuzzleHttp\Client();
-        $pages = 10;
+        $pages = 3;
         $current = 1;
 
         while ($current < $pages) {
-            $req = $client->get("https://api.themoviedb.org/3/movie/popular?api_key=".env('TMDB_API_KEY')."&language=tr-TR&page=" . $current); 
+            $req = $client->get("https://api.themoviedb.org/3/movie/top_rated?api_key=".env('TMDB_API_KEY')."&language=tr-TR&page=" . $current); 
             $res = json_decode($req->getBody());
             
-
             foreach ($res->results as $mov) {
                 $this->addMovieFromTmDB($mov->id);
             }
@@ -119,5 +152,20 @@ class MovieController extends Controller
         }
 
         echo "hepsi eklendi";
+    }
+
+    public function izlendi(Request $req)
+    {
+        $film = Movie::find($req->id);
+        if (! $film)
+            abort(404);
+        
+        $film->seen++;
+        $film->save();
+
+        if (Auth::check())
+            Auth::user()->izledi($film->id);
+
+        return "true";
     }
 }

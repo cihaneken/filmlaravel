@@ -485,20 +485,42 @@ h1.renkli {
             .info {
                 position: absolute; 
                 top:0; right:0; left:0; bottom:0;
-                padding: 10px; background: rgba(0,0,0,.55);
-                border-radius: 5px;
+                padding: 10px; background: rgba(0,0,0,.75);
+                border-radius: 4px;
                 .name {
                     font-size: 17px; font-weight: bold; margin-bottom: 6px;
+                    text-shadow: 3px 3px 3px rgba(0,0,0,.7);
                     span {
-                        color:orange;
+                        color:#fff;
+                        float: right;
+                        width: 40px; height:40px; line-height: 40px; text-align: center;
+                        border-radius: 40px; background: linear-gradient(#432998, #874EAB);
+                        font-size: 14px;
+                        box-shadow: 3px 3px 3px rgba(0,0,0,.66);
+                        text-shadow: none;
                     }
                 }
                 .sene {
                     margin-bottom: 50px; font-weight: 600;
                     color:#ccc;
                 }
-                .konu {
-                    font-size: 13px; color:#ccc;
+                .actors {
+                    text-align: center;
+                    li {
+                        float:none; margin-right: 5px;
+                        display: inline-block;
+                        &:last-child {
+                            margin-right:0;
+                        }
+                        img {
+                            width: 45px; opacity: 0.7; height: 68px;
+                            box-shadow: 3px 3px 3px rgba(0,0,0,.7);
+
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
                 }
 
                 &:hover {
@@ -528,6 +550,10 @@ h1.renkli {
 }
 #yorumlar {
     background: #090D1C; border-top: 1px solid rgba(255,255,255,0.05);
+    .yorum_yok {
+        padding: 20px;
+        text-align: center; font-size: 17px; font-weight: 600; color:#6674ab;
+    }
     .yorumlar {
         min-height: 300px;
         float: left;
@@ -585,8 +611,39 @@ h1.renkli {
             }
         }
     }
-}
 
+    
+}
+.cast {
+    float:left;
+    margin-left: 20px;
+    width: 400px;
+    li {
+        float:left;
+        margin-right: 23px;
+        width: 118px;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        img {
+            width: 100%; border-radius: 5px; height:177px;
+            opacity: 0.7;
+            box-shadow: 3px 3px 3px rgba(0,0,0,.52);
+        }
+
+        .name {
+            text-align: center; font-weight: 600; height: 50px; padding-top: 5px;
+            overflow: hidden;
+        }
+
+        &:hover {
+            img {
+                opacity: 1;
+            }
+        }
+    }
+}
 #auth {
     margin-top: 50px;
     z-index: 1;
@@ -796,6 +853,76 @@ h1.renkli {
                     color: #808a9e;
                 }
             }
+        }
+    }
+}
+
+.modal {
+    .modal-title {
+        font-size: 21px;
+        float:left;
+        color:#222;
+    }
+
+    .close {
+        margin-top: 7px;
+    }
+
+    .modal-body {
+        color:#222;
+    }
+
+    .modal-close {
+        background: #9c9898;
+        font-weight: 600;
+    }
+}
+
+#customAlert {
+    .modal-header {
+        display: none;
+    }
+    .modal-dialog{
+        width: 300px;
+        text-align: center;
+        margin-top: 250px;
+    }
+    .modal-footer {
+        padding: 5px;
+    }
+}
+
+.arama_sonuclari {
+    .kat_films {
+        li {
+            width: 100% !important;
+            overflow: hidden;
+            .name {
+                border-radius: 0 !important;
+            }
+        }
+    }
+}
+
+.oyuncular {
+    li {
+        float:left; width: 185px;
+        .img {
+            height: 278px;
+            width: 100%;
+            background: rgba(0,0,0,.43);
+            box-shadow: 3px 3px 3px rgba(0,0,0,.55);
+            img {
+                border-radius: 5px;
+            }
+        }
+
+        margin-right: 38px;
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+        .name {
+            height: 50px; overflow: hidden; text-align: center; font-weight: bold; padding-top: 5px;
         }
     }
 }

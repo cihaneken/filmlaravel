@@ -17,6 +17,9 @@ class Category extends Model
 
     public function film()
     {
+        if (!$this->filmSayisi())
+            return Movie::inRandomOrder()->first();
+
         $id = DB::table('category_connector')->inRandomOrder()->where('category_id', $this->id)->first()->movie_id;
         return Movie::find( $id );
     }

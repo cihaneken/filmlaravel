@@ -30,6 +30,8 @@ Route::get('/izle/{id}-', 'PagesController@izle')->name('izle');
 Route::get('/kategoriler', 'PagesController@kategoriler')->name('kategoriler');
 Route::get('/kategori/{slug}', 'PagesController@kategori')->name('kategori');
 
+Route::get('/oyuncu/{id}-{slug}', 'ActorController@filmler')->name('oyuncu');
+
 Route::get('/arsiv', 'PagesController@arsiv');
 
 Route::get('/add-movie-from-tmdb/{tmdb_id}', 'MovieController@addMovieFromTmDB');
@@ -43,3 +45,9 @@ Route::post('/auth/kayit', 'PagesController@kayit_post')->name('kayit_post');
 
 Route::get('/auth/profil', 'PagesController@profil')->name('profil');
 Route::get('/profil/{slug}', 'PagesController@profil_public')->name('profil_public');
+
+Route::get('/ara', 'PagesController@ara')->name('ara');
+
+
+Route::post('/yorum-yap', 'CommentController@yorum_yap');
+Route::post('/izlendi', 'MovieController@izlendi');

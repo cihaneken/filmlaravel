@@ -27,6 +27,7 @@
                 <div class="clear"></div>
             </ul>
 
+            @if ($filmler->lastPage() > 1)
             <div class="sayfalama">
                 <ul>
                     @for($i = 1; $i <= $filmler->lastPage(); $i++)
@@ -36,6 +37,7 @@
                     <div class="clear"></div>
                 </ul>
             </div>
+            @endif
         </div>
     </div>
 

@@ -43,7 +43,15 @@
                                     <span>{{ $kat->name }}</span>
                                 @endforeach
                             </div>
-                            <div class="konu">{{ mb_substr($film->overview,0,200,"utf-8").".."}}</div>
+                            <div class="actors">
+                                <ul>
+                                    @foreach($film->actors(5) as $actor)
+                                    <li>
+                                        <img title="{{ $actor->name }}" src="{{ $actor->photo() }}" alt="">
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
                     </a>
                 </li>
@@ -56,6 +64,7 @@
                 @endif
             </ul>
 
+            @if ($filmler->lastPage() > 1)
             <div class="sayfalama">
                 <ul>
                     @for($i = 1; $i <= $filmler->lastPage(); $i++)
@@ -65,6 +74,7 @@
                     <div class="clear"></div>
                 </ul>
             </div>
+            @endif
         </div>
         <div class="clear"></div>
     </div>

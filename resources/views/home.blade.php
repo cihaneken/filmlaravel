@@ -16,11 +16,7 @@
                         <div class="info">
                             <div class="name">{{ $movie->name(19) }}</div>
                             <div class="stars">
-                                <i class="fa fa-star light"></i>
-                                <i class="fa fa-star light"></i>
-                                <i class="fa fa-star light"></i>
-                                <i class="fa fa-star light"></i>
-                                <i class="fa fa-star"></i>
+                                {!! $movie->stars() !!}
                             </div>
                         </div>
                     </a>
@@ -60,11 +56,7 @@
                             <div class="info">
                                 <div class="name">{{ $movie->name(19) }}</div>
                                 <div class="stars">
-                                    <i class="fa fa-star light"></i>
-                                    <i class="fa fa-star light"></i>
-                                    <i class="fa fa-star light"></i>
-                                    <i class="fa fa-star light"></i>
-                                    <i class="fa fa-star"></i>
+                                    {!! $movie->stars() !!}
                                 </div>
                             </div>
                         </a>

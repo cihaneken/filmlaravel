@@ -47,7 +47,7 @@
                 <li>
                     <div class="film-afis">
                         <a href="{{ $movie->url() }}" title="{{ $movie->name }}">
-                            <img src="{{ $movie->poster_url }}" alt="{{ $movie->name }} poster">
+                            <img src="{{ $movie->mini_poster() }}" alt="{{ $movie->name }} poster">
                             <div class="puan">{{ $movie->puan }}</div>
                             <div class="golge">&nbsp;</div>
                             <div class="info">

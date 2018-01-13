@@ -76,7 +76,10 @@ module.exports = __webpack_require__(45);
 /***/ 45:
 /***/ (function(module, exports) {
 
+
+/* Hazır olunca */
 $(document).ready(function () {
+
     $(".owl-carousel").owlCarousel({
         loop: true,
         margin: 10,

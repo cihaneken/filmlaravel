@@ -78,35 +78,63 @@
                 <h1 class="renkli"><span>Film hakkında görüşlerinizi paylaşın.</span></h1>
 
                 <div class="yorum_yap">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Yorum yazınız.."></textarea>
-                    <button>Gönder</button>
+                    <textarea name="" id="yorum_mesaj" cols="30" rows="10" placeholder="Yorum yazınız.."></textarea>
+                    <button @click="yorumYap({{ $movie->id }})">Gönder</button>
                 </div>
-
+                
+                @if (!count($movie->comments()))
+                <div class="yorum_yok">
+                    Hiç yorum yapılmamış :/ İlk yorumu sen yap!
+                </div>
+                @endif
                 <ul>
-                    @for($i = 0; $i < 10; $i++)
+                    @foreach($movie->comments() as $comment)
                     <li>
                         <div class="left">
-                            <img src="https://cdn.dribbble.com/users/935926/avatars/small/dfbb2b492a5e69be8b8a31b63bdcee01.jpg" alt="">
+                            @if ($comment->user())
+                                <img src="{{ $comment->user()->avatar }}" alt="">
+                            @else
+                                <img src="{{ env('DEFAULT_AVATAR') }}" alt="">
+                            @endif
                         </div>
                         <div class="right">
+                            @if ($comment->user())
                             <div class="top">
-                                <span class="name">Ziyaretçi</span> <div class="tarih">3 saat önce</div>
+                                <span class="name"><a href="{{ url('profil/' . $comment->user()->slug) }}">{{ $comment->user()->username }}</a></span> <div class="tarih">{{ $comment->created_at->diffForHumans() }}</div>
                             </div>
+                            @else
+                            <div class="top">
+                                <span class="name">Ziyaretçi</span> <div class="tarih">{{ $comment->created_at->diffForHumans() }}</div>
+                            </div>
+                            @endif
                             <p class="mesaj">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Modi reprehenderit aspernatur voluptas, facere veniam autem ex similique eveniet, 
-                                nulla quas enim assumenda vel libero eius nisi iure possimus molestias minus?
+                                {{ $comment->body }}
                             </p>
                         </div>
                         <div class="clear"></div>
                     </li>
-                    @endfor
+                    @endforeach
                 </ul>
             </div>
-
+            <div class="cast">
+                <h1 class="renkli"><span style="border-color:#fa3556;">Oyuncular</span></h1>
+                <ul>
+                    @foreach($movie->actors() as $actor)
+                        <li>
+                            <a href="{{ $actor->url() }}">
+                                <img src="{{ $actor->photo2() }}" alt="">
+                                <div class="name">{{ $actor->name }}</div>
+                            </a>
+                        </li>
+                    @endforeach
+                    <div class="clear"></div>
+                </ul>
+            </div>
             <div class="clear"></div>
         </div>
     </div>
 </div>
-
+<div class="izlendi-vue">
+    <input type="hidden" id="izlendi_id" value="{{ $movie->id }}">
+</div>
 @endsection

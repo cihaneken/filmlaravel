@@ -4,9 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/tv.png') }}"/>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="app-url" content="{{ url('/') }}">
 
     <title>{{ config('app.name', 'Movie V1') }} - @yield("title", "Film izle")</title>
 
@@ -27,8 +28,10 @@
                 </div>
 
                 <div class="search">
-                    <input type="text" placeholder="Film veya oyuncu ara..">
-                    <button><i class="fa fa-search fa-lg"></i></button>
+                    <form action="{{ url('/ara') }}">
+                        <input type="text" name="q" value="{{ isset($q) ? $q:null }}" placeholder="Film veya oyuncu ara..">
+                        <button><i class="fa fa-search fa-lg"></i></button>
+                    </form>
                 </div>
                 
                 <div class="user">
@@ -81,12 +84,34 @@
         </div>
         
         @yield('content')
+
+        <!-- Modal -->
+        <div class="modal fade" id="customAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn modal-close btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- @Modal -->
     </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="{!! asset('js/app.js?v=11') !!}"></script>
+    <script src="{!! asset('js/owl.carousel.min.js') !!}"></script>
+    <script src="{!! asset('js/main.js') !!}"></script>
 </body>
 </html>

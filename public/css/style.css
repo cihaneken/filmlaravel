@@ -600,18 +600,31 @@ h1.renkli a:hover {
   left: 0;
   bottom: 0;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
 }
 
 #arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .name {
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 6px;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
 #arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .name span {
-  color: orange;
+  color: #fff;
+  float: right;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 40px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#432998), to(#874EAB));
+  background: linear-gradient(#432998, #874EAB);
+  font-size: 14px;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.66);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.66);
+  text-shadow: none;
 }
 
 #arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .sene {
@@ -620,9 +633,30 @@ h1.renkli a:hover {
   color: #ccc;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .konu {
-  font-size: 13px;
-  color: #ccc;
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors {
+  text-align: center;
+}
+
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li {
+  float: none;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li:last-child {
+  margin-right: 0;
+}
+
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li img {
+  width: 45px;
+  opacity: 0.7;
+  height: 68px;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+}
+
+#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li img:hover {
+  opacity: 1;
 }
 
 #arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info:hover {
@@ -657,6 +691,14 @@ h1.renkli a:hover {
 #yorumlar {
   background: #090D1C;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#yorumlar .yorum_yok {
+  padding: 20px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: #6674ab;
 }
 
 #yorumlar .yorumlar {
@@ -739,6 +781,43 @@ h1.renkli a:hover {
 
 #yorumlar .yorumlar ul li .right p {
   color: #65709a;
+}
+
+.cast {
+  float: left;
+  margin-left: 20px;
+  width: 400px;
+}
+
+.cast li {
+  float: left;
+  margin-right: 23px;
+  width: 118px;
+}
+
+.cast li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.cast li img {
+  width: 100%;
+  border-radius: 5px;
+  height: 177px;
+  opacity: 0.7;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.52);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.52);
+}
+
+.cast li .name {
+  text-align: center;
+  font-weight: 600;
+  height: 50px;
+  padding-top: 5px;
+  overflow: hidden;
+}
+
+.cast li:hover img {
+  opacity: 1;
 }
 
 #auth {
@@ -1018,5 +1097,77 @@ h1.renkli a:hover {
 
 #liste .film .bilgi .right .konu {
   color: #808a9e;
+}
+
+.modal .modal-title {
+  font-size: 21px;
+  float: left;
+  color: #222;
+}
+
+.modal .close {
+  margin-top: 7px;
+}
+
+.modal .modal-body {
+  color: #222;
+}
+
+.modal .modal-close {
+  background: #9c9898;
+  font-weight: 600;
+}
+
+#customAlert .modal-header {
+  display: none;
+}
+
+#customAlert .modal-dialog {
+  width: 300px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+#customAlert .modal-footer {
+  padding: 5px;
+}
+
+.arama_sonuclari .kat_films li {
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.arama_sonuclari .kat_films li .name {
+  border-radius: 0 !important;
+}
+
+.oyuncular li {
+  float: left;
+  width: 185px;
+  margin-right: 38px;
+}
+
+.oyuncular li .img {
+  height: 278px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.43);
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.55);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.55);
+}
+
+.oyuncular li .img img {
+  border-radius: 5px;
+}
+
+.oyuncular li:nth-child(2n) {
+  margin-right: 0;
+}
+
+.oyuncular li .name {
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 5px;
 }
 

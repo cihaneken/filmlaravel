@@ -48,6 +48,9 @@ class CommentController extends Controller
 
                 Cache::put($cacheName, $mesaj, 5);
 
+                $movie->comments++;
+                $movie->save();
+
                 return $data;
             }else{
                 $data['mesaj'] = "Yorum yapılamadı. Lütfen daha sonra tekrar deneyiniz.";

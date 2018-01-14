@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+$break-small: 600px;
+$break-large: 1200px;
+
 * {
     font-family: 'Open Sans', sans-serif;
     outline: none;
     list-style: none;
     margin: 0; 
     padding: 0;
+}
+
+.show_mobil {
+    display: none;
+    @media screen and (max-width: $break-small) {
+        display: block;
+    }
+}
+
+.show_tam {
+    display: block;
+    @media screen and (max-width: $break-small) {
+        display: none;
+    }
 }
 
 body {
@@ -34,6 +51,9 @@ input {
 .center {
     width: 1024px; 
     margin: 0 auto;
+    @media screen and (max-width: $break-small) {
+        width: 100%;
+    }
 }
 
 .clear {
@@ -50,7 +70,9 @@ input {
     background: -ms-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
     background: linear-gradient(to right, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
-
+    @media screen and (max-width: $break-small) {
+        padding-top: 10px !important;
+    }
     .top {
         .logo {
             float:left; width: 200px; font-weight: bold; font-size: 31px;
@@ -91,6 +113,13 @@ input {
                 font-weight: 600;
             }
 
+            @media screen and (max-width: $break-small) {
+                .user-button {
+                    font-size: 12px !important;
+                    padding: 3px 10px !important;
+                    margin-top: 5px;
+                }
+            }
             .giris {
                 &:hover {
                     background: rgba(255,255,255,0.3);
@@ -113,6 +142,31 @@ input {
                 .name {
                     float: right;  line-height: 40px; margin-left: 10px; font-weight: bold;
                     font-size: 21px; 
+                }
+                @media screen and (max-width: $break-small) {
+                    .name {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $break-small) {
+            .logo {
+                float:left; width: auto;
+                font-size: 17px; padding-left: 15px; padding-top: 14px;
+            }
+            .search {
+                float: none !important; width: 100% !important;
+                margin-top:10px;
+                input {
+                    width: 300px;
+                }
+            }
+            .user {
+                float: none; width: auto; text-align: right; margin-right: 15px;
+                img {
+                    margin-left: 20px;
                 }
             }
         }
@@ -142,7 +196,17 @@ input {
             }
         }
     }
-
+    @media screen and (max-width: $break-small) {
+        .menu {
+            ul li {
+                display: list-item !important; text-align: left;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                a {
+                    width: 100%;
+                }
+            }
+        }
+    }
     .speacial-menu {
         display: none;
         ul li {
@@ -285,8 +349,30 @@ h1.renkli {
             }
         }
     }
+    @media screen and (max-width: $break-small) {
+        .filmler {
+            float: none;
+            width: 100%;
+            margin-left: 0;
+            li {
+                margin-right: 15px !important;
+                &:nth-child(2n) {
+                    margin-right: 0 !important;
+                }
+            }
+        }
+        .left {
+            float: none; display: none;
+        }
+    }
 }
-
+#cage {
+    min-height:700px;
+    @media screen and (max-width: $break-small) {
+        padding: 5px;
+        min-height: 400px !important;
+    }
+}
 #izle {
     position: relative;
     .izle-bg {
@@ -385,9 +471,52 @@ h1.renkli {
             }
         }
     }
+
+    @media screen and (max-width: $break-small) {
+        .top {
+            text-align: center;
+            .select {
+                float:none !important;
+                margin-bottom: 10px;
+                display: inline-block;
+                margin-right: 10px !important;
+            }
+        }
+
+        iframe {
+            width: 100% !important;
+            height: 200px !important;
+        }
+
+        .info {
+            text-align: center;
+            .left {
+                float: none !important; text-align: center !important; margin: 0 !important;
+            }
+            .right {
+                h1 {
+                    float: none !important;
+                    margin:0 !important;
+                    margin-top: 20px !important;
+                }
+                li {
+                    float: none !important; display:  inline-block !important;
+                }
+                float: none !important; width: 100% !important;
+                .konu {
+                    text-align: justify;
+                }
+            }
+        }
+    }
 }
 
 #kategoriler {
+    @media screen and (max-width: $break-small) {
+        h1 {
+            font-size: 14px !important;
+        }
+    }
     margin-top: 50px;
     h1 {
         margin-bottom: 50px; font-size: 21px;
@@ -424,6 +553,14 @@ h1.renkli {
             &:hover {
                 background: rgba(0,0,0,.3);
             }
+        }
+
+        
+    }
+    @media screen and (max-width: $break-small) {
+        li {
+            width: 100% !important;
+            height: 205px !important; 
         }
     }
 }
@@ -612,6 +749,25 @@ h1.renkli {
         }
     }
 
+    @media screen and (max-width: $break-small) {
+        .yorumlar {
+            width: 100% !important; margin-left: 5px;
+        }
+        .yorum_yap {
+            float: none !important;
+
+        }
+        .cast {
+            float: none !important;
+            margin:0 !important;
+            li {
+                width: 172px !important;
+                img {
+                    height:255px !important;
+                }
+            }
+        }
+    }
     
 }
 .cast {
@@ -901,6 +1057,8 @@ h1.renkli {
                 border-radius: 0 !important;
             }
         }
+
+        
     }
 }
 
@@ -924,5 +1082,22 @@ h1.renkli {
         .name {
             height: 50px; overflow: hidden; text-align: center; font-weight: bold; padding-top: 5px;
         }
+    }
+}
+.container {
+    min-height: 700px;
+    @media screen and (max-width: $break-small) {
+        min-height: 400px !important;
+    }
+}
+#footer {
+    background: #090B1A;
+    border-top: 10px solid rgba(0,0,0,.33);
+    min-height: 200px;
+    padding-top: 15px;
+    margin-top: 20px;
+
+    @media screen and (max-width: $break-small) {
+       padding: 20px;
     }
 }

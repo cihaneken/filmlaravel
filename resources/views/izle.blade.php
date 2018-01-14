@@ -3,7 +3,7 @@
 @section("title", $movie->name . " izle")
 
 @section("content")
-
+<style>body {background:#090D1C}</style>
 <div id="izle">
     <div class="izle-bg" style="background-image: url({{ $movie->backdrop_orj() }});">&nbsp;</div>
     <div class="izle-film">

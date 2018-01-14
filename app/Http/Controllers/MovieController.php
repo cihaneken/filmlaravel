@@ -14,11 +14,16 @@ class MovieController extends Controller
 {
     public function addMovieFromTmDB( $tmdb_id )
     {
-
+        $data = [
+            'status' => 'error'
+        ];
         $kontrol = Movie::where('tmdb_id', $tmdb_id)->first();
 
         if ($kontrol)
-            return "Zaten ekli";
+        {
+            $data['mesaj'] = $kontrol->name . " zaten ekli. ";
+            return $data;
+        }
 
         $client = new \GuzzleHttp\Client();
 
@@ -131,8 +136,13 @@ class MovieController extends Controller
         }
 
         
-
-        return $movie;
+        $data = [];
+        
+        $data['status'] = "success";
+        $data['mesaj'] = $movie->name . " başarıyla eklendi. ";
+        $data['movie'] = $movie;
+        return $data;
+        
     }
 
     public function addUpComings()
@@ -167,5 +177,10 @@ class MovieController extends Controller
             Auth::user()->izledi($film->id);
 
         return "true";
+    }
+
+    public function getir(Request $req)
+    {
+        return Movie::find($req->id);
     }
 }

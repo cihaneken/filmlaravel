@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 44);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 44:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(42);
 
 
 /***/ }),
 
-/***/ 45:
+/***/ 42:
 /***/ (function(module, exports) {
 
 
@@ -86,10 +86,10 @@ $(document).ready(function () {
         nav: true,
         responsive: {
             0: {
-                items: 6
+                items: 2
             },
             600: {
-                items: 6
+                items: 2
             },
             1000: {
                 items: 6

@@ -25,11 +25,8 @@
         <div class="filmler">
             @foreach( $liste->filmler() as $film )
             
-            <div class="film">
-               
+            <div class="film">            
                 <img src="{{ $film->backdrop_orj() }}" width="100%" alt="">
-                
-            
                 <div class="bilgi">
                     <div class="left">
                         <a href="{{ $film->url() }}">
@@ -50,10 +47,8 @@
                             {{ mb_substr($film->overview,0,300).".." }}
                         </div>
                     </div>
-
                     <div class="clear"></div>
                 </div>
-
             </div>
             
             @endforeach

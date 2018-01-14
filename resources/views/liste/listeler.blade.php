@@ -7,7 +7,7 @@
     <div class="center">
         <h1 class="renkli">
             <span>LİSTELER</span>
-            <a href="#"><i class="fa fa-plus"></i> Listeni oluştur!</a>
+            <a href="{{ url('/liste/olustur') }}"><i class="fa fa-plus"></i> Listeni oluştur!</a>
         </h1>
 
         <div class="slogan">

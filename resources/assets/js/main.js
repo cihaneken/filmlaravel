@@ -11,10 +11,10 @@ $(document).ready(function () {
         nav: true,
         responsive: {
             0: {
-                items: 6
+                items: 2
             },
             600: {
-                items: 6
+                items: 2
             },
             1000: {
                 items: 6

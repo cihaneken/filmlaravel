@@ -963,8 +963,9 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-__webpack_require__(42);
-module.exports = __webpack_require__(43);
+__webpack_require__(38);
+__webpack_require__(39);
+module.exports = __webpack_require__(40);
 
 
 /***/ }),
@@ -985,6 +986,14 @@ function url(path) {
 function alert(body) {
     $("#customAlert .modal-body").html(body);
     $("#customAlert").modal("toggle");
+}
+function alert_s(body) {
+    $("#customAlert .modal-body").html(body);
+    $("#customAlert").modal("show");
+}
+function alert_h(body) {
+    $("#customAlert .modal-body").html(body);
+    $("#customAlert").modal("hide");
 }
 
 var yorum_yap = new Vue({
@@ -1023,6 +1032,117 @@ var izlendi = new Vue({
                 }
             });
         }, 30 * 1000);
+    }
+});
+
+var liste_olustur = new Vue({
+    el: '.liste_olustur',
+    data: {
+        filmler: [],
+        secili: 0,
+        name: ""
+    },
+    methods: {
+        ortalama: function ortalama() {
+            var toplam = 0;
+            $.each(liste_olustur.filmler, function (i, film) {
+                toplam += film.puan;
+            });
+
+            return (toplam / liste_olustur.filmler.length).toFixed(1);
+        },
+        paylas: function paylas() {
+            if (liste_olustur.filmler.length < 4) return alert("Listede en az 4 film olmalı.");
+
+            if (liste_olustur.name.length < 10) return alert("Liste adı en az 10 karakterden oluşmalı.");
+
+            $.ajax({
+                url: url("/liste/olustur"),
+                type: 'POST',
+                data: { _token: _token, filmler: liste_olustur.filmler, name: liste_olustur.name },
+                success: function success(res) {
+                    if (res.status == "error") {
+                        alert(res.mesaj);
+                    } else {
+                        alert(res.mesaj);
+                        setTimeout(function () {
+                            window.location.href = res.url;
+                        }, 2500);
+                    }
+                }
+            });
+        },
+        filmEkle: function filmEkle() {
+            var id = liste_olustur.secili;
+
+            if (id == 0) return alert("Lütfen bir film seçiniz");
+
+            var varmi = false;
+            $.each(liste_olustur.filmler, function (i, film) {
+                if (film.id == id) varmi = true;
+            });
+
+            if (varmi) return alert("Film zaten ekli.");
+            alert("Lütfen bekleyiniz, film detayları alınıyor..");
+            $.ajax({
+                url: url("/filmi-getir"),
+                type: 'POST',
+                data: { _token: _token, id: id },
+                success: function success(res) {
+                    alert("..");
+                    liste_olustur.filmler.push(res);
+                }
+            });
+        }
+    }
+});
+
+/* ADMİN */
+
+var film_ekle = new Vue({
+    el: '#film-ekle',
+    data: {
+        id: null
+    },
+    methods: {
+        ekle: function ekle(id) {
+            if (id == 0 || id == null) return alert("Lütfen bir film id si giriniz.");
+
+            alert_s("Lütfen bekleyiniz. Film ekleniyor..");
+            $.ajax({
+                url: url("/admin/add-movie-from-tmdb/" + id),
+                type: 'GET',
+                success: function success(res) {
+                    if (res.status == "error") alert_s(res.mesaj);else {
+                        alert_s(res.mesaj);
+                    }
+                }
+            });
+        }
+    }
+});
+
+var admin = new Vue({
+    el: '#admin',
+    methods: {
+        adminToggle: function adminToggle(id) {
+            $.ajax({
+                url: url("/admin/admin-toggle/" + id),
+                type: 'GET',
+                success: function success(res) {
+                    alert(res.mesaj);
+                }
+            });
+        },
+        adminSil: function adminSil(id) {
+            $.ajax({
+                url: url("/admin/admin-sil/" + id),
+                type: 'GET',
+                success: function success(res) {
+                    alert(res.mesaj);
+                }
+            });
+        }
     }
 });
 
@@ -42809,17 +42929,19 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */
+/* 38 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 43 */
+/* 39 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 40 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

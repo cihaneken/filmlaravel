@@ -6,6 +6,26 @@
   padding: 0;
 }
 
+.show_mobil {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .show_mobil {
+    display: block;
+  }
+}
+
+.show_tam {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .show_tam {
+    display: none;
+  }
+}
+
 body {
   background: #0E1127;
   color: #fff;
@@ -39,6 +59,12 @@ input {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 600px) {
+  .center {
+    width: 100%;
+  }
+}
+
 .clear {
   clear: both;
 }
@@ -50,6 +76,12 @@ input {
   background: -webkit-gradient(linear, left top, right top, from(#422897), to(#874eab));
   background: linear-gradient(to right, #422897 0%, #874eab 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
+}
+
+@media screen and (max-width: 600px) {
+  #header {
+    padding-top: 10px !important;
+  }
 }
 
 #header .top .logo {
@@ -104,6 +136,14 @@ input {
   font-weight: 600;
 }
 
+@media screen and (max-width: 600px) {
+  #header .top .user .user-button {
+    font-size: 12px !important;
+    padding: 3px 10px !important;
+    margin-top: 5px;
+  }
+}
+
 #header .top .user .giris:hover {
   background: rgba(255, 255, 255, 0.3);
 }
@@ -131,6 +171,43 @@ input {
   margin-left: 10px;
   font-weight: bold;
   font-size: 21px;
+}
+
+@media screen and (max-width: 600px) {
+  #header .top .user .giris_yapildi .name {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #header .top .logo {
+    float: left;
+    width: auto;
+    font-size: 17px;
+    padding-left: 15px;
+    padding-top: 14px;
+  }
+
+  #header .top .search {
+    float: none !important;
+    width: 100% !important;
+    margin-top: 10px;
+  }
+
+  #header .top .search input {
+    width: 300px;
+  }
+
+  #header .top .user {
+    float: none;
+    width: auto;
+    text-align: right;
+    margin-right: 15px;
+  }
+
+  #header .top .user img {
+    margin-left: 20px;
+  }
 }
 
 #header .menu {
@@ -163,6 +240,18 @@ input {
 
 #header .menu ul li a i {
   color: orange;
+}
+
+@media screen and (max-width: 600px) {
+  #header .menu ul li {
+    display: list-item !important;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #header .menu ul li a {
+    width: 100%;
+  }
 }
 
 #header .speacial-menu {
@@ -340,6 +429,38 @@ h1.renkli a:hover {
   height: 260px;
 }
 
+@media screen and (max-width: 600px) {
+  #homeView .filmler {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  #homeView .filmler li {
+    margin-right: 15px !important;
+  }
+
+  #homeView .filmler li:nth-child(2n) {
+    margin-right: 0 !important;
+  }
+
+  #homeView .left {
+    float: none;
+    display: none;
+  }
+}
+
+#cage {
+  min-height: 700px;
+}
+
+@media screen and (max-width: 600px) {
+  #cage {
+    padding: 5px;
+    min-height: 400px !important;
+  }
+}
+
 #izle {
   position: relative;
 }
@@ -475,8 +596,62 @@ h1.renkli a:hover {
   color: #414f84;
 }
 
+@media screen and (max-width: 600px) {
+  #izle .top {
+    text-align: center;
+  }
+
+  #izle .top .select {
+    float: none !important;
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-right: 10px !important;
+  }
+
+  #izle iframe {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  #izle .info {
+    text-align: center;
+  }
+
+  #izle .info .left {
+    float: none !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  #izle .info .right {
+    float: none !important;
+    width: 100% !important;
+  }
+
+  #izle .info .right h1 {
+    float: none !important;
+    margin: 0 !important;
+    margin-top: 20px !important;
+  }
+
+  #izle .info .right li {
+    float: none !important;
+    display: inline-block !important;
+  }
+
+  #izle .info .right .konu {
+    text-align: justify;
+  }
+}
+
 #kategoriler {
   margin-top: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  #kategoriler h1 {
+    font-size: 14px !important;
+  }
 }
 
 #kategoriler h1 {
@@ -530,6 +705,13 @@ h1.renkli a:hover {
 
 #kategoriler ul.kat_films li .name:hover {
   background: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+  #kategoriler li {
+    width: 100% !important;
+    height: 205px !important;
+  }
 }
 
 #arsiv .left {
@@ -781,6 +963,30 @@ h1.renkli a:hover {
 
 #yorumlar .yorumlar ul li .right p {
   color: #65709a;
+}
+
+@media screen and (max-width: 600px) {
+  #yorumlar .yorumlar {
+    width: 100% !important;
+    margin-left: 5px;
+  }
+
+  #yorumlar .yorum_yap {
+    float: none !important;
+  }
+
+  #yorumlar .cast {
+    float: none !important;
+    margin: 0 !important;
+  }
+
+  #yorumlar .cast li {
+    width: 172px !important;
+  }
+
+  #yorumlar .cast li img {
+    height: 255px !important;
+  }
 }
 
 .cast {
@@ -1169,5 +1375,29 @@ h1.renkli a:hover {
   text-align: center;
   font-weight: bold;
   padding-top: 5px;
+}
+
+.container {
+  min-height: 700px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    min-height: 400px !important;
+  }
+}
+
+#footer {
+  background: #090B1A;
+  border-top: 10px solid rgba(0, 0, 0, 0.33);
+  min-height: 200px;
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  #footer {
+    padding: 20px;
+  }
 }
 

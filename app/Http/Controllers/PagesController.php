@@ -216,7 +216,7 @@ class PagesController extends Controller
         if (!$q || strlen($q) < 3) return redirect( url('/') );
 
         $filmler = Movie::where('name', 'like', "%$q%")->orWhere('orj_name', 'like', "%$q%")->get();
-        $oyuncular = Actor::where('name', 'like', "%$q%")->get();
+        $oyuncular = Actor::where('name', 'like', "%$q%")->where('profile_path', 'like', '%/%')->get();
 
         $data = [
             'filmler' => $filmler,

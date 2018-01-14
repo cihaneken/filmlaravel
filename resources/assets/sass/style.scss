@@ -389,6 +389,7 @@ h1.renkli {
         margin-top: 20px;
         .top {
             .select {
+                position: relative;
                 float: left;
                 padding: 7px 20px;
                 border: 2px solid rgba(255,255,255,0.3); margin-right: 20px;
@@ -398,6 +399,31 @@ h1.renkli {
                 cursor: pointer;
                 &:hover {
                     background: rgba(255,255,255,0.3);
+                }
+
+                .menusu {
+                    display: none;
+                    box-shadow: 3px 3px 3px rgba(0,0,0,.32);
+                    position: absolute;
+                    background: #fff;
+                    border-radius: 5px; margin-top: 5px;
+                    margin-left: 50px;
+                    li {
+                        padding: 10px; color:#222; right:0;
+                        border-bottom: 1px solid #ddd;
+                        &:last-child {
+                            border: none;
+                            border-bottom-left-radius: 5px;
+                            border-bottom-right-radius: 5px;
+                        }
+                        &:first-child {
+                            border-top-left-radius: 5px;
+                            border-top-right-radius: 5px;
+                        }
+                        &:hover {
+                            background: #ddd;
+                        }
+                    }
                 }
             }
         }
@@ -1101,3 +1127,5 @@ h1.renkli {
        padding: 20px;
     }
 }
+
+[v-cloak] {display: none}

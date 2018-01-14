@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("title", $movie->name . " izle")
-
+<input type="hidden" id="movie_id" value="{{ $movie->id }}">
 @section("content")
 <style>body {background:#090D1C}</style>
 <div id="izle">
@@ -9,23 +9,42 @@
     <div class="izle-film">
             <div id="player">
                 <div class="center">
-                    <div class="top">
-                        <div class="select">
-                            Dil: İngilizce <i class="fa fa-angle-down"></i>
-                        </div>
-                        <div class="select">
-                            Kaynak: Fragman <i class="fa fa-angle-down"></i>
-                        </div>
-                        <div class="select">
-                            Part: 1 <i class="fa fa-angle-down"></i>
+                    <div v-if="videolar.length == 0" style="height:510px; color:#aaa; text-align:center; padding-top:100px;">
+                        <i class="fa fa-spinner fa-spin fa-5x"></i>
+                    </div>
+                    <span v-if="videolar.length > 0" v-cloak>
+                        <div class="top">
+                            <div class="select">
+                                <span @click="menusu('m1')">Kaynak: @{{ selected.kaynak }} - @{{ selected.dil }} <i class="fa fa-angle-down"></i></span>
+                                <div class="menusu m1" style="min-width:150px; margin-left:30px">
+                                    <ul>
+                                        <li v-for="video in videolar" @click="selected = video; menusu('m1')">
+                                            @{{ video.kaynak }} - @{{ video.dil }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="select" v-if="selected.part2 != null">
+                                <span @click="menusu('m2')">Part: @{{ part }} <i class="fa fa-angle-down"></i></span>
+                                <div class="menusu m2" style="width:100px; margin-left:0">
+                                    <ul>
+                                        <li v-if="selected.part1 != null" @click="part = 1; menusu('m2')">1</li>
+                                        <li v-if="selected.part2 != null" @click="part = 2; menusu('m2')">2</li>
+                                        <li v-if="selected.part3 != null" @click="part = 3; menusu('m2')">3</li>
+                                        <li v-if="selected.part4 != null" @click="part = 4; menusu('m2')">4</li>
+                                        <li v-if="selected.part5 != null" @click="part = 5; menusu('m2')">5</li>
+                                        <li v-if="selected.part6 != null" @click="part = 6; menusu('m2')">6</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
                         </div>
 
-                        <div class="clear"></div>
-                    </div>
-
-                    <div class="player">
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/TyHvyGVs42U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
+                        <div class="player">
+                            <iframe width="100%" height="500" :src="getSrc()" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </span>
                 </div>
                 <div class="info">
                     <div class="center">

@@ -59,7 +59,7 @@ const izlendi = new Vue({
                     console.log(res);
                 }
             });
-        }, 30 * 1000);
+        }, 30 * 60 * 1000);
     }
 });
 
@@ -179,6 +179,83 @@ const admin = new Vue({
                     alert(res.mesaj);
                 }
             });
+        }
+    }
+});
+
+const video_ekle = new Vue({
+    el: '#video_ekle',
+    data: {
+        id: 0,
+        dil: 0,
+        kaynak: null,
+        part1: null,
+        part2: null,
+        part3: null,
+        part4: null,
+        part5: null,
+        part6: null,
+    },
+    methods: {
+        ekle: () => {
+            var id = video_ekle.id;
+            var dil = video_ekle.dil;
+            var kaynak = video_ekle.kaynak;
+            var part1 = video_ekle.part1;
+            var part2 = video_ekle.part2;
+            var part3 = video_ekle.part3;
+            var part4 = video_ekle.part4;
+            var part5 = video_ekle.part5;
+            var part6 = video_ekle.part6;
+            $.ajax({
+                url: url("/admin/video-ekle"),
+                type: 'POST',
+                data: { _token, id, dil, part1, kaynak, part2, part3, part4, part5, part6},
+                success: (res) => {
+                    alert(res.mesaj);
+                }
+            });
+        }
+    }
+});
+
+const player = new Vue({
+    el: '#player',
+    data: {
+        videolar: [],
+        selected: {},
+        part: 1
+    },
+    created: () => {
+        var id = $("#movie_id").val();;
+        setTimeout(() => {
+            $.ajax({
+                url: url("/get-videos/" + id),
+                type: 'GET',
+                success: (res) => {
+                    player.videolar = res;
+                    player.selected = res[0];
+                }
+            });
+        }, 1500);
+    },
+    methods: {
+        menusu: (name) => {
+            $('.'+name).toggle();
+        },
+        getSrc: () => {
+            if (player.part == 1)
+                return player.selected.part1;
+            if (player.part == 2)
+                return player.selected.part2;
+            if (player.part == 3)
+                return player.selected.part3;
+            if (player.part == 4)
+                return player.selected.part4;
+            if (player.part == 5)
+                return player.selected.part5;
+            if (player.part == 6)
+                return player.selected.part6;
         }
     }
 });

@@ -27,8 +27,9 @@
                     <div class="logo">{{ config('app.name') }}</div> 
                     <ul class="menu">
                         <li><a href="{{ url('admin') }}"><i class="fa fa-home"></i> Anasayfa</a></li>
-                        <li><a href="{{ url('admin/film-ekle') }}"><i class="fa fa-plus"></i> Film Ekle</a></li>
+                        <li><a href="{{ url('admin/film-ekle') }}"><i class="fa fa-tv"></i> Film Ekle</a></li>
                         <li><a href="{{ url('admin/kullanicilar') }}"><i class="fa fa-users"></i> Kullanıcılar</a></li>
+                        <li><a href="{{ url('admin/video-ekle') }}"><i class="fa fa-plus"></i> Video Ekle</a></li>
                     </ul>
                 </div>
             </div>

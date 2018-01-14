@@ -8,10 +8,15 @@ use App\Movie;
 use App\Category;
 use App\Country;
 use App\Actor;
+use App\Video;
 use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
+    public function get_videos($id)
+    {
+        return Video::where('movie_id', $id)->get();
+    }
     public function addMovieFromTmDB( $tmdb_id )
     {
         $data = [

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Movie;
 
 class AdminController extends Controller
 {
@@ -55,5 +56,12 @@ class AdminController extends Controller
             $data['mesaj'] = "Veritabanı hatası.";
         }
         return $data;
+    }
+
+    public function video_ekle()
+    {
+        $data = [];
+        $data['filmler'] = Movie::select('id', 'name')->orderBy('name', 'asc')->get();
+        return view("admin.video_ekle", $data);
     }
 }

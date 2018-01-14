@@ -61,6 +61,7 @@ Route::get('/ara', 'PagesController@ara')->name('ara');
 Route::post('/yorum-yap', 'CommentController@yorum_yap');
 Route::post('/izlendi', 'MovieController@izlendi');
 
+Route::get("/get-videos/{id}", 'MovieController@get_videos');
 
 Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function()
 {
@@ -69,6 +70,9 @@ Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function
     Route::get('/kullanicilar', 'AdminController@kullanicilar');
     Route::get('/admin-toggle/{id}', 'AdminController@admin_toggle');
     Route::get('/admin-sil/{id}', 'AdminController@admin_sil');
+
+    Route::get('/video-ekle', 'AdminController@video_ekle');
+    Route::post('/video-ekle', 'VideoController@video_ekle');
 
     Route::get('/film-ekle', 'AdminController@film_ekle');
     Route::get('/add-movie-from-tmdb/{tmdb_id}', 'MovieController@addMovieFromTmDB');

@@ -1188,7 +1188,8 @@ var player = new Vue({
     data: {
         videolar: [],
         selected: {},
-        part: 1
+        part: 1,
+        videoyok: false
     },
     created: function created() {
         var id = $("#movie_id").val();;
@@ -1199,6 +1200,7 @@ var player = new Vue({
                 success: function success(res) {
                     player.videolar = res;
                     player.selected = res[0];
+                    if (player.videolar.length == 0) player.videoyok = true;
                 }
             });
         }, 1500);

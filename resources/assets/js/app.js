@@ -224,7 +224,8 @@ const player = new Vue({
     data: {
         videolar: [],
         selected: {},
-        part: 1
+        part: 1,
+        videoyok: false,
     },
     created: () => {
         var id = $("#movie_id").val();;
@@ -235,6 +236,8 @@ const player = new Vue({
                 success: (res) => {
                     player.videolar = res;
                     player.selected = res[0];
+                    if (player.videolar.length == 0)
+                        player.videoyok = true;
                 }
             });
         }, 1500);

@@ -9,8 +9,13 @@
     <div class="izle-film">
             <div id="player">
                 <div class="center">
-                    <div v-if="videolar.length == 0" style="height:510px; color:#aaa; text-align:center; padding-top:100px;">
+                    <div v-if="videolar.length == 0 && videoyok==false" style="height:510px; color:#aaa; text-align:center; padding-top:100px;">
                         <i class="fa fa-spinner fa-spin fa-5x"></i>
+                    </div>
+                    <div v-if="videolar.length == 0 && videoyok==true" style="height:510px; color:#aaa; text-align:center; padding-top:100px;">
+                        <i class="fa fa-info fa-5x"></i>
+                        <br>
+                        Bu filme ait video eklenmemiş.
                     </div>
                     <span v-if="videolar.length > 0" v-cloak>
                         <div class="top">

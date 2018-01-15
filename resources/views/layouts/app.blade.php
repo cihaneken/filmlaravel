@@ -150,7 +150,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="{!! asset('js/app.js?v=11'.rand(0,99999) !!}"></script>
+    <script src="{!! asset('js/app.js?v=11'.rand(0,99999)) !!}"></script>
     <script src="{!! asset('js/owl.carousel.min.js') !!}"></script>
     <script src="{!! asset('js/main.js') !!}"></script>
 </body>

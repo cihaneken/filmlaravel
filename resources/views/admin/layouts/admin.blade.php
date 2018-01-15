@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin.css?v=1.'.rand(0,99999) }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css?v=1.'.rand(0,99999)) }}" rel="stylesheet">
 </head>
 <body>
     <div id="header">
@@ -67,6 +67,6 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="{!! asset('js/app.js?v=11'.rand(0,99999) !!}"></script>
+    <script src="{!! asset('js/app.js?v=11'.rand(0,99999)) !!}"></script>
 </body>
 </html>

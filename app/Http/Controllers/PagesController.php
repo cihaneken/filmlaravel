@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
-    
+    public function iletisim()
+    {
+        return view("iletisim");
+    }
     public function arsiv()
     {
         $page = @$_GET['page']  ? $_GET['page'] : 1;

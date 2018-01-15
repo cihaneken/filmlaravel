@@ -1253,6 +1253,32 @@ var videolar = new Vue({
     }
 });
 
+var mesajlar = new Vue({
+    el: '#mesajlar',
+    methods: {
+        sil: function sil(id) {
+            $.ajax({
+                url: url("/admin/mesaj-sil"),
+                type: 'POST',
+                data: { _token: _token, id: id },
+                success: function success(res) {
+                    alert(res.mesaj);
+                }
+            });
+        },
+        oku: function oku(id) {
+            $.ajax({
+                url: url("/admin/get-mesaj"),
+                type: 'POST',
+                data: { _token: _token, id: id },
+                success: function success(res) {
+                    alert("Mail adresi: " + res.mail + "<br><br>" + res.mesaj);
+                }
+            });
+        }
+    }
+});
+
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {

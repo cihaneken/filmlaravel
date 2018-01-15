@@ -304,3 +304,28 @@ const videolar = new Vue({
     }
 });
 
+const mesajlar = new Vue({
+    el: '#mesajlar',
+    methods: {
+        sil: (id) => {
+            $.ajax({
+                url: url("/admin/mesaj-sil"),
+                type: 'POST',
+                data: { _token, id },
+                success: (res) => {
+                    alert(res.mesaj);
+                }
+            });
+        },
+        oku: (id) => {
+            $.ajax({
+                url: url("/admin/get-mesaj"),
+                type: 'POST',
+                data: { _token, id },
+                success: (res) => {
+                    alert("Mail adresi: "+res.mail + "<br><br>" + res.mesaj);
+                }
+            });
+        }
+    }
+});

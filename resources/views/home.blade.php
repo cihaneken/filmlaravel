@@ -29,7 +29,6 @@
 <div id="homeView">
     <div class="center">
         <div class="left">
-
             <h1 class="renkli"> <span>FİLM KATEGORİLERİ</span> </h1>
             <ul class="kategoriler">
                 @foreach($categories as $category)

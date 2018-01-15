@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\CheckAdmin;
 
 // LISTELER
+Route::get('/iletisim', 'PagesController@iletisim')->name('iletisim');
+Route::post('/iletisim', 'MesajController@create')->name('iletisim');
 Route::get('/listeler', 'ListeController@listeler')->name('listeler');
 Route::get('/liste/olustur', 'ListeController@liste_olustur')->name('liste-olustur');
 Route::post('/liste/olustur', 'ListeController@liste_olustur_post')->name('liste-olustur-post');
@@ -68,6 +70,7 @@ Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function
     Route::get('/', 'AdminController@index');
 
     Route::get('/kullanicilar', 'AdminController@kullanicilar');
+    Route::get('/mesajlar', 'AdminController@mesajlar');
     Route::get('/admin-toggle/{id}', 'AdminController@admin_toggle');
     Route::get('/admin-sil/{id}', 'AdminController@admin_sil');
 
@@ -77,6 +80,8 @@ Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function
     Route::get('/video-edit/{id}', 'VideoController@video_edit');
     Route::post('/video-edit', 'VideoController@video_edit_post');
     Route::post('/video-sil', 'VideoController@delete');
+    Route::post('/mesaj-sil', 'MesajController@delete');
+    Route::post('/get-mesaj', 'MesajController@getMesaj');
 
     Route::get('/film-ekle', 'AdminController@film_ekle');
     Route::get('/add-movie-from-tmdb/{tmdb_id}', 'MovieController@addMovieFromTmDB');

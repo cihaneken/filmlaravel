@@ -7,13 +7,14 @@
     <div class="center">
         <h1 class="renkli">
             <span>LİSTELER</span>
-            <a href="{{ url('/liste/olustur') }}"><i class="fa fa-plus"></i> Listeni oluştur!</a>
+            <a href="{{ url('/liste/olustur') }}"><i class="fa fa-plus"></i> LİSTENİ OLUŞTUR!</a>
         </h1>
-
+        @if ($listeler->currentPage() == 1)
         <div class="slogan">
             <i class="fa fa-tv fa-3x"></i> <br><br>
             Listelere hoşgeldiniz! <br>Artık sevdiğiniz türden filmleri, sizler gibi film severler tarafından oluşturulan listeler içinde bulabilirsiniz!
         </div>
+        @endif
 
         @foreach($listeler as $liste)
         <div class="liste_vitrin">
@@ -74,6 +75,18 @@
             <div class="clear"></div>
         </div>
         @endforeach
+
+        @if ($listeler->lastPage() > 1)
+        <div class="sayfalama">
+            <ul>
+                @for($i = 1; $i <= $listeler->lastPage(); $i++)
+                <li><a href="{{ '?page='. $i }}" class="{{ $i == $listeler->currentPage() ? 'aktif' : null }}">{{ $i }}</a></li>
+                @endfor
+
+                <div class="clear"></div>
+            </ul>
+        </div>
+        @endif
     </div>
 </div>
 @endsection

@@ -72,7 +72,7 @@ class ListeController extends Controller
     {
         $data = [];
 
-        $data['listeler'] = Liste::all();
+        $data['listeler'] = Liste::paginate(5);
 
         return view("liste.listeler", $data);
     }

@@ -29,11 +29,6 @@
 <div id="homeView">
     <div class="center">
         <div class="left">
-            <h1 class="renkli"> <span style="border-color:yellow">ENLER KATEGORİSİ</span> </h1>
-            <ul>
-                <li><a href="#"><i class="fa fa-clock-o"></i> Son Eklenenler</a></li>
-                <li><a href="#"><i class="fa fa-star"></i> Bu Sıralar Popüler</a></li>
-            </ul>
 
             <h1 class="renkli"> <span>FİLM KATEGORİLERİ</span> </h1>
             <ul class="kategoriler">

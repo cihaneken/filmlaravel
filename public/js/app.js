@@ -970,9 +970,8 @@ module.exports = __webpack_require__(40);
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 __webpack_require__(11);
 
 window.Vue = __webpack_require__(35);
@@ -1216,6 +1215,40 @@ var player = new Vue({
             if (player.part == 4) return player.selected.part4;
             if (player.part == 5) return player.selected.part5;
             if (player.part == 6) return player.selected.part6;
+        }
+    }
+});
+
+var videolar = new Vue({
+    el: '#videolar',
+    data: {
+        id: 0,
+        videolar: [],
+        videoyok: false
+    },
+    methods: {
+        getir: function getir() {
+            var id = videolar.id;
+            if (id == 0) return alert("Lütfen bir film seçiniz");
+
+            $.ajax({
+                url: url("/get-videos/" + id),
+                type: 'GET',
+                success: function success(res) {
+                    videolar.videolar = res;
+                    if (videolar.videolar.length == 0) videolar.videoyok = true;else videolar.videoyok = false;
+                }
+            });
+        },
+        sil: function sil(id) {
+            $.ajax({
+                url: url("/admin/video-sil"),
+                type: 'POST',
+                data: { _token: _token, id: id },
+                success: function success(res) {
+                    alert(res.mesaj);
+                }
+            });
         }
     }
 });

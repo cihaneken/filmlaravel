@@ -71,8 +71,12 @@ Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function
     Route::get('/admin-toggle/{id}', 'AdminController@admin_toggle');
     Route::get('/admin-sil/{id}', 'AdminController@admin_sil');
 
+    Route::get('/videolar', 'AdminController@videolar');
     Route::get('/video-ekle', 'AdminController@video_ekle');
     Route::post('/video-ekle', 'VideoController@video_ekle');
+    Route::get('/video-edit/{id}', 'VideoController@video_edit');
+    Route::post('/video-edit', 'VideoController@video_edit_post');
+    Route::post('/video-sil', 'VideoController@delete');
 
     Route::get('/film-ekle', 'AdminController@film_ekle');
     Route::get('/add-movie-from-tmdb/{tmdb_id}', 'MovieController@addMovieFromTmDB');

@@ -210,7 +210,7 @@ const video_ekle = new Vue({
             $.ajax({
                 url: url("/admin/video-ekle"),
                 type: 'POST',
-                data: { _token, id, dil, part1, kaynak, part2, part3, part4, part5, part6},
+                data: { _token, id, dil, part1, kaynak, part2, part3, part4, part5, part6 },
                 success: (res) => {
                     alert(res.mesaj);
                 }
@@ -262,3 +262,45 @@ const player = new Vue({
         }
     }
 });
+
+
+const videolar = new Vue({
+    el: '#videolar',
+    data: {
+        id: 0,
+        videolar: [],
+        videoyok: false
+    },
+    methods: {
+        getir: () => {
+            var id = videolar.id;
+            if (id == 0)
+                return alert("Lütfen bir film seçiniz");
+
+            $.ajax({
+                url: url("/get-videos/" + id),
+                type: 'GET',
+                success: (res) => {
+                    videolar.videolar = res;
+                    if (videolar.videolar.length == 0)
+                        videolar.videoyok = true;
+                    else
+                        videolar.videoyok = false;
+                }
+            });
+
+        },
+        sil: (id) => {
+            $.ajax({
+                url: url("/admin/video-sil"),
+                type: 'POST',
+                data: {_token, id},
+                success: (res) => {
+                    alert(res.mesaj);
+                }
+            });
+
+        }
+    }
+});
+

@@ -59,4 +59,68 @@
         </ul>
     </div>
 </div>
+
+<div class="row konu">
+    <div class="col">
+        <p>
+            {{ $movie->overview }}
+        </p>
+    </div>
+</div>
+
+<div class="row secenekler">
+    <div class="col col-6"><i class="fa fa-comments"></i> Yorumlar</div>
+    <div class="col col-6"><i class="fa fa-users"></i> Oyuncular</div>
+</div>
+
+<div class="row yorumlar">
+    <br>
+    <div class="col">
+        <div class="form-group">
+            <textarea name="" id="yorum_mesaj" placeholder="Yorumunuz.."  class="form-control"></textarea>
+            <br>
+            <button class="btn btn-primary" @click="yorumYap({{$movie->id}})">Yorum Yap</button>
+        </div>
+    </div>
+    
+</div>
+<div class="row yorum_list">
+    <div class="col">
+        @if (!count($movie->comments()))
+        <div class="yorum_yok">
+            Hiç yorum yapılmamış :/ İlk yorumu sen yap!
+        </div>
+        @endif
+        <ul>
+            @foreach($movie->comments() as $comment)
+            <li>
+                <div class="row">
+                    <div class="col col-3 left">
+                        @if ($comment->user())
+                            <img src="{{ $comment->user()->avatar }}" alt="{{ $comment->user()->username }} kullanıcı avatarı">
+                        @else
+                            <img src="{{ env('DEFAULT_AVATAR') }}" alt="kullanıcı avatarı">
+                        @endif
+                    </div>
+                    <div class="col col-9 right">
+                        @if ($comment->user())
+                        <div class="top">
+                            <span class="name"><a href="{{ url('profil/' . $comment->user()->slug) }}">{{ $comment->user()->username }}</a></span> <div class="tarih">{{ $comment->created_at->diffForHumans() }}</div>
+                        </div>
+                        @else
+                        <div class="top">
+                            <span class="name">Ziyaretçi</span> <div class="tarih">{{ $comment->created_at->diffForHumans() }}</div>
+                        </div>
+                        @endif
+                        <p class="mesaj">
+                            {{ $comment->body }}
+                        </p>
+                    </div>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+
 @endsection

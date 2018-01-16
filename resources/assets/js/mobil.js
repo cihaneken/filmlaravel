@@ -7,6 +7,37 @@ var app_url = $("meta[name='app-url']").attr('content');
 function url(path) {
     return app_url + path;
 }
+
+const menu = new Vue({
+    el: '.menu',
+    methods: {
+        showMenu: () => {
+            $('.popMenu').slideToggle(200);
+        }
+    }
+});
+
+const yorum_yap = new Vue({
+    el: '.yorumlar',
+    created: () => {
+        console.log();
+    },
+    methods: {
+        yorumYap: (movie_id) => {
+            mesaj = $("#yorum_mesaj").val();
+            $.ajax({
+                url: url("/yorum-yap"),
+                type: 'POST',
+                data: { _token, mesaj, movie_id },
+                success: (res) => {
+                    alert(res.mesaj);
+                    if (res.status == "success")
+                        $("#yorum_mesaj").val(' ');
+                }
+            });
+        }
+    }
+});
 const player = new Vue({
     el: '#player',
     data: {

@@ -42768,6 +42768,36 @@ var app_url = $("meta[name='app-url']").attr('content');
 function url(path) {
     return app_url + path;
 }
+
+var menu = new Vue({
+    el: '.menu',
+    methods: {
+        showMenu: function showMenu() {
+            $('.popMenu').slideToggle(200);
+        }
+    }
+});
+
+var yorum_yap = new Vue({
+    el: '.yorumlar',
+    created: function created() {
+        console.log();
+    },
+    methods: {
+        yorumYap: function yorumYap(movie_id) {
+            mesaj = $("#yorum_mesaj").val();
+            $.ajax({
+                url: url("/yorum-yap"),
+                type: 'POST',
+                data: { _token: _token, mesaj: mesaj, movie_id: movie_id },
+                success: function success(res) {
+                    alert(res.mesaj);
+                    if (res.status == "success") $("#yorum_mesaj").val(' ');
+                }
+            });
+        }
+    }
+});
 var player = new Vue({
     el: '#player',
     data: {

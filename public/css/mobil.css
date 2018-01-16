@@ -71,6 +71,11 @@ body {
   padding-left: 0;
 }
 
+#header .menu .btn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 #header .menu .input-group {
   margin-bottom: 0 !important;
 }
@@ -161,6 +166,127 @@ body {
 }
 
 .film-detay .detay li span {
+  color: orange;
+}
+
+.yorumlar {
+  margin-top: 20px;
+}
+
+.konu {
+  color: #666c98;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.secenekler {
+  text-align: center;
+  font-weight: bold;
+}
+
+.secenekler i {
+  color: orange;
+}
+
+.yorum_list ul {
+  margin-top: 20px;
+}
+
+.yorum_list ul li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.yorum_list ul li .left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.yorum_list ul li .right .top {
+  margin-bottom: 15px;
+}
+
+.yorum_list ul li .right .top .name {
+  font-weight: bold;
+  color: orange;
+  float: left;
+  margin-right: 10px;
+}
+
+.yorum_list ul li .right .top .tarih {
+  color: #ccc;
+}
+
+.yorum_list ul li .right p {
+  color: #65709a;
+}
+
+.popMenu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  display: none;
+}
+
+.popMenu li {
+  background: #6546A6;
+}
+
+.popMenu li a {
+  color: #fff;
+}
+
+.popMenu li a i {
+  color: orange;
+}
+
+.sayfalama {
+  margin-bottom: 50px;
+}
+
+.sayfalama ul li {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.sayfalama ul li a {
+  display: inline-block;
+  border-radius: 3px;
+  background: #1e2346;
+  font-weight: 600;
+  color: #fff;
+  padding: 3px 0px;
+  text-align: center;
+  width: 30px;
+}
+
+.sayfalama ul li a.aktif {
+  background: #fa3556;
+}
+
+.arsiv_acilir {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  left: 20px;
+  right: 20px;
+}
+
+.arsiv_acilir li {
+  background: #6546A6;
+}
+
+.arsiv_acilir li a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.arsiv_acilir li a i {
   color: orange;
 }
 

@@ -32,7 +32,7 @@
             </div>
             <div class="row menu">
                 <div class="col col-5">
-                    <button class="btn btn-indigo"><i class="fa fa-bars fa-lg"></i></button>
+                    <button class="btn btn-indigo" @click="showMenu()"><i class="fa fa-bars fa-lg"></i></button>
                 </div>
                 <div class="col col-7 pull-right">
                     <form action="{{ url('/ara') }}">
@@ -47,7 +47,13 @@
                 </div>
             </div>
         </div>
-
+        <div class="popMenu">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i> Anasayfa</a></li>
+                <li class="list-group-item"><a href="{{ url('/arsiv') }}"><i class="fa fa-archive"></i> Arşiv</a></li>
+                <li class="list-group-item"><a href="{{ url('/kategoriler') }}"><i class="fa fa-bars"></i> Kategoriler</a></li>
+            </ul>
+        </div>
         <div id="content">
             @yield('content')
         </div>

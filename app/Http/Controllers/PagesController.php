@@ -72,7 +72,12 @@ class PagesController extends Controller
         $data['sirala'] = $sirala;
         
 
-        return view("arsiv", $data);
+        $agent = new Agent();
+        $page = "arsiv";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.arsiv";
+
+        return view($page, $data);
     }
     public function index()
     {

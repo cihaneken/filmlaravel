@@ -17,7 +17,7 @@
                     <div v-if="videolar.length == 0 && videoyok==true" style="height:510px; color:#aaa; text-align:center; padding-top:100px;">
                         <i class="fa fa-info fa-5x"></i>
                         <br>
-                        Bu filme ait video eklenmemiş.
+                        <h2>Bu filme ait video eklenmemiş.</h2>
                     </div>
                     <span v-if="videolar.length > 0" v-cloak>
                         <div class="top">

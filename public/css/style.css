@@ -15,7 +15,7 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   .show_mobil {
     display: block;
   }
@@ -25,7 +25,7 @@
   display: block;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   .show_tam {
     display: none;
   }
@@ -64,7 +64,7 @@ input {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   .center {
     width: 100%;
   }
@@ -83,7 +83,7 @@ input {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #header {
     padding-top: 10px !important;
   }
@@ -118,7 +118,7 @@ input {
   color: #777;
   position: absolute;
   margin-left: -35px;
-  margin-top: 9px;
+  top: 14px;
 }
 
 #header .top .search button:hover {
@@ -141,7 +141,7 @@ input {
   font-weight: 600;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #header .top .user .user-button {
     font-size: 12px !important;
     padding: 3px 10px !important;
@@ -178,13 +178,13 @@ input {
   font-size: 21px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #header .top .user .giris_yapildi .name {
     display: none;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #header .top .logo {
     float: left;
     width: auto;
@@ -247,7 +247,7 @@ input {
   color: orange;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #header .menu ul li {
     display: list-item !important;
     text-align: left;
@@ -434,7 +434,7 @@ h1.renkli a:hover {
   height: 260px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #homeView .filmler {
     float: none;
     width: 100%;
@@ -459,7 +459,7 @@ h1.renkli a:hover {
   min-height: 700px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #cage {
     padding: 5px;
     min-height: 400px !important;
@@ -635,7 +635,7 @@ h1.renkli a:hover {
   color: #414f84;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #izle .top {
     text-align: center;
   }
@@ -687,7 +687,7 @@ h1.renkli a:hover {
   margin-top: 50px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #kategoriler h1 {
     font-size: 14px !important;
   }
@@ -746,7 +746,7 @@ h1.renkli a:hover {
   background: rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #kategoriler li {
     width: 100% !important;
     height: 205px !important;
@@ -1004,7 +1004,7 @@ h1.renkli a:hover {
   color: #65709a;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #yorumlar .yorumlar {
     width: 100% !important;
     margin-left: 5px;
@@ -1420,7 +1420,7 @@ h1.renkli a:hover {
   min-height: 700px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   .container {
     min-height: 400px !important;
   }
@@ -1434,7 +1434,7 @@ h1.renkli a:hover {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1px) {
   #footer {
     padding: 20px;
   }

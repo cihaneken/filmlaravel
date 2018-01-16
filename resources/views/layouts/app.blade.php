@@ -34,7 +34,7 @@
                     @else
                     <div class="giris_yapildi">
                         @if(Auth::user()->is_admin)
-                            <a style="display: inline-block;margin-top: 7px;" href="{{ url('admin') }}" id="admin_link">
+                            <a style="display: inline-block;margin-top: 7px;float:left;" href="{{ url('admin') }}" id="admin_link">
                                 <i class="fa fa-cog fa-2x"></i>
                             </a>
                         @endif

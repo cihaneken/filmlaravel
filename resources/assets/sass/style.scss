@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-$break-small: 600px;
+$break-small: 1px;
 $break-large: 1200px;
 a:focus {
     color: #fff;
@@ -97,7 +97,7 @@ input {
                 color:#777;
                 position: absolute;
                 margin-left: -35px;
-                margin-top: 9px;
+                top: 14px;
                 &:hover {
                     color:#000;
                 }

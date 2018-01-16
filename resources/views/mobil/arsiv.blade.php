@@ -9,10 +9,10 @@
         <div class="col col-8 pull-right mx-right text-right">
             <div class="row">
                 <div class="col col-6">
-                    <button class="btn" style="margin:0" onclick="javascript:$('#sirala').slideToggle();"><i class="fa fa-bars"></i> Sırala</button>
+                    <button class="btn" style="margin:0" onclick="javascript:$('#sirala').slideToggle();$('#kategoriler').hide();"><i class="fa fa-bars"></i> Sırala</button>
                 </div>
                 <div class="col col-6">
-                    <button class="btn" style="margin:0" onclick="javascript:$('#kategoriler').slideToggle();"><i class="fa fa-bars"></i> Kategoriler</button>
+                    <button class="btn" style="margin:0" onclick="javascript:$('#kategoriler').slideToggle();$('#sirala').hide();"><i class="fa fa-bars"></i> Kategoriler</button>
                 </div>
             </div>
         </div>

@@ -139,8 +139,12 @@ class PagesController extends Controller
     {
         $data = [];
         $data['film'] = Movie::inRandomOrder()->first();
+        $agent = new Agent();
+        $page = "auth.login";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.giris";
 
-        return view("auth.login", $data);
+        return view($page, $data);
     }
 
     public function giris_post(Request $req)
@@ -150,12 +154,17 @@ class PagesController extends Controller
 
         if (Auth::attempt(['username' => $req->username, 'password' => $req->password], $remember)) {
             // Authentication passed...
-            return redirect("auth/profil");
+            return redirect( url("/") );
         }else{
             $data = [];
             $data['film'] = Movie::inRandomOrder()->first();
             $data['error'] = "Bilgileriniz hatalı.";
-            return view("auth.login", $data);
+            $agent = new Agent();
+            $page = "auth.login";
+            if ($agent->isMobile() || $agent->isTablet())
+                $page = "mobil.giris";
+
+            return view($page, $data);
         }
     }
 
@@ -164,7 +173,12 @@ class PagesController extends Controller
         $data = [];
         $data['film'] = Movie::inRandomOrder()->first();
 
-        return view("auth.register", $data);
+        $agent = new Agent();
+        $page = "auth.register";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.kayit";
+
+        return view($page, $data);
     }
 
     public function kayit_post(Request $req)
@@ -173,18 +187,25 @@ class PagesController extends Controller
         $data = [];
         $data['film'] = Movie::inRandomOrder()->first();
 
+        $agent = new Agent();
+        $page = "auth.register";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.kayit";
+
+       
+
         if (!$req->username || !$req->email || !$req->password)
-            return view("auth.register", ['error' => 'Lütfen boş alan bırakma.', 'film' => $data['film']]);
+            return view($page, ['error' => 'Lütfen boş alan bırakma.', 'film' => $data['film']]);
         
         if (strlen($req->username) < 4)
-            return view("auth.register", ['error' => 'Kullanıcı adı en az 4 karakter olmalı.', 'film' => $data['film']]);
+            return view($page, ['error' => 'Kullanıcı adı en az 4 karakter olmalı.', 'film' => $data['film']]);
 
         if (strlen($req->password) < 4)
-            return view("auth.register", ['error' => 'Şifre en az 4 karakter olmalı.', 'film' => $data['film']]);
+            return view($page, ['error' => 'Şifre en az 4 karakter olmalı.', 'film' => $data['film']]);
 
         $kontrol = User::where('username', $req->username)->first();
         if ($kontrol)
-            return view("auth.register", ['error' => 'Bu kullanıcı adı sistemimizde mevcut.', 'film' => $data['film']]);
+            return view($page, ['error' => 'Bu kullanıcı adı sistemimizde mevcut.', 'film' => $data['film']]);
 
         $user = new User;
         $user->username = $req->username;
@@ -196,11 +217,11 @@ class PagesController extends Controller
         $user->is_admin = 0;
 
         if (!$user->save())
-            return view("auth.register", ['error' => 'Veritabanı hatası.']);
+            return view($page, ['error' => 'Veritabanı hatası.']);
         
         if (Auth::attempt(['username' => $req->username, 'password' => $req->password])) {
             // Authentication passed...
-            return redirect("auth/profil");
+            return redirect( url('/') );
         }
     }
 
@@ -232,7 +253,10 @@ class PagesController extends Controller
             'oyuncular' => $oyuncular,
             'q' => $q
         ];
-
-        return view("ara", $data);
+        $agent = new Agent();
+        $page = "ara";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.ara";
+        return view($page, $data);
     }
 }

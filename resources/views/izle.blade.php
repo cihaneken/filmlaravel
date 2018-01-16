@@ -56,7 +56,7 @@
                 <div class="info">
                     <div class="center">
                         <div class="left">
-                            <img src="{{ $movie->mini_poster() }}" alt="">
+                            <img src="{{ $movie->mini_poster() }}" alt="{{ $movie->name }} posteri">
                         </div>
                         <div class="right">
                             <div class="name">
@@ -118,9 +118,9 @@
                     <li>
                         <div class="left">
                             @if ($comment->user())
-                                <img src="{{ $comment->user()->avatar }}" alt="">
+                                <img src="{{ $comment->user()->avatar }}" alt="{{ $comment->user()->username }} kullanıcı avatarı">
                             @else
-                                <img src="{{ env('DEFAULT_AVATAR') }}" alt="">
+                                <img src="{{ env('DEFAULT_AVATAR') }}" alt="kullanıcı avatarı">
                             @endif
                         </div>
                         <div class="right">
@@ -148,15 +148,16 @@
                     @foreach($movie->actors(6) as $actor)
                         <li>
                             <a href="{{ $actor->url() }}">
-                                <img src="{{ $actor->photo2() }}" alt="">
+                                <img src="{{ $actor->photo2() }}" alt="{{ $actor->name }} oyuncu fotoğrafı">
                                 <div class="name">{{ $actor->name }}</div>
                             </a>
                         </li>
                     @endforeach
                     <div class="clear"></div>
                 </ul>
-
+                @if (count($movie->actors()) > 6)
                 <div style="text-align:center" @click="show = 2" v-if="show == 1">
+                    <br>
                     <button class="btn btn-primary">Hepsini Göster</button>
                 </div>
 
@@ -164,7 +165,7 @@
                     @foreach($movie->actors() as $actor)
                         <li>
                             <a href="{{ $actor->url() }}">
-                                <img src="{{ $actor->photo2() }}" alt="">
+                                <img src="{{ $actor->photo2() }}" alt="{{ $actor->name }} oyuncu fotoğrafı">
                                 <div class="name">{{ $actor->name }}</div>
                             </a>
                         </li>
@@ -173,8 +174,10 @@
                 </ul>
 
                 <div style="text-align:center" @click="show=1" v-if="show == 2">
+                    <br>
                     <button class="btn btn-primary">Daha az gör</button>
                 </div>
+                @endif
             </div>
             <div class="clear"></div>
         </div>

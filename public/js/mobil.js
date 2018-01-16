@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 44);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -42741,18 +42741,22 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(4)))
 
 /***/ }),
-/* 36 */
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(37);
-__webpack_require__(38);
-__webpack_require__(39);
-__webpack_require__(40);
-module.exports = __webpack_require__(41);
+module.exports = __webpack_require__(45);
 
 
 /***/ }),
-/* 37 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(9);
@@ -42761,231 +42765,38 @@ window.Vue = __webpack_require__(33);
 
 var _token = $("meta[name='csrf-token']").attr('content');
 var app_url = $("meta[name='app-url']").attr('content');
-
 function url(path) {
     return app_url + path;
 }
-
-function alert(body) {
-    $("#customAlert .modal-body").html(body);
-    $("#customAlert").modal("toggle");
-}
-function alert_s(body) {
-    $("#customAlert .modal-body").html(body);
-    $("#customAlert").modal("show");
-}
-function alert_h(body) {
-    $("#customAlert .modal-body").html(body);
-    $("#customAlert").modal("hide");
-}
-
-var yorum_yap = new Vue({
-    el: '.yorum_yap',
-    created: function created() {
-        console.log();
-    },
-    methods: {
-        yorumYap: function yorumYap(movie_id) {
-            mesaj = $("#yorum_mesaj").val();
-            $.ajax({
-                url: url("/yorum-yap"),
-                type: 'POST',
-                data: { _token: _token, mesaj: mesaj, movie_id: movie_id },
-                success: function success(res) {
-                    alert(res.mesaj);
-                    if (res.status == "success") $("#yorum_mesaj").val(' ');
-                }
-            });
-        }
-    }
-});
-
-/* 30dk sonra izlendi olarak işaretler filmi. */
-var izlendi = new Vue({
-    el: '.izlendi-vue',
-    created: function created() {
-        var id = $("#izlendi_id").val();
-        setTimeout(function () {
-            $.ajax({
-                url: url("/izlendi"),
-                type: 'POST',
-                data: { _token: _token, id: id },
-                success: function success(res) {
-                    console.log(res);
-                }
-            });
-        }, 30 * 60 * 1000);
-    }
-});
-
-var liste_olustur = new Vue({
-    el: '.liste_olustur',
-    data: {
-        filmler: [],
-        secili: 0,
-        name: ""
-    },
-    methods: {
-        ortalama: function ortalama() {
-            var toplam = 0;
-            $.each(liste_olustur.filmler, function (i, film) {
-                toplam += film.puan;
-            });
-
-            return (toplam / liste_olustur.filmler.length).toFixed(1);
-        },
-        paylas: function paylas() {
-            if (liste_olustur.filmler.length < 4) return alert("Listede en az 4 film olmalı.");
-
-            if (liste_olustur.name.length < 10) return alert("Liste adı en az 10 karakterden oluşmalı.");
-
-            $.ajax({
-                url: url("/liste/olustur"),
-                type: 'POST',
-                data: { _token: _token, filmler: liste_olustur.filmler, name: liste_olustur.name },
-                success: function success(res) {
-                    if (res.status == "error") {
-                        alert(res.mesaj);
-                    } else {
-                        alert(res.mesaj);
-                        setTimeout(function () {
-                            window.location.href = res.url;
-                        }, 2500);
-                    }
-                }
-            });
-        },
-        filmEkle: function filmEkle() {
-            var id = liste_olustur.secili;
-
-            if (id == 0) return alert("Lütfen bir film seçiniz");
-
-            var varmi = false;
-            $.each(liste_olustur.filmler, function (i, film) {
-                if (film.id == id) varmi = true;
-            });
-
-            if (varmi) return alert("Film zaten ekli.");
-            alert("Lütfen bekleyiniz, film detayları alınıyor..");
-            $.ajax({
-                url: url("/filmi-getir"),
-                type: 'POST',
-                data: { _token: _token, id: id },
-                success: function success(res) {
-                    alert("..");
-                    liste_olustur.filmler.push(res);
-                }
-            });
-        }
-    }
-});
-
-/* ADMİN */
-
-var film_ekle = new Vue({
-    el: '#film-ekle',
-    data: {
-        id: null
-    },
-    methods: {
-        ekle: function ekle(id) {
-            if (id == 0 || id == null) return alert("Lütfen bir film id si giriniz.");
-
-            alert_s("Lütfen bekleyiniz. Film ekleniyor..");
-            $.ajax({
-                url: url("/admin/add-movie-from-tmdb/" + id),
-                type: 'GET',
-                success: function success(res) {
-                    if (res.status == "error") alert_s(res.mesaj);else {
-                        alert_s(res.mesaj);
-                    }
-                }
-            });
-        }
-    }
-});
-
-var admin = new Vue({
-    el: '#admin',
-    methods: {
-        adminToggle: function adminToggle(id) {
-            $.ajax({
-                url: url("/admin/admin-toggle/" + id),
-                type: 'GET',
-                success: function success(res) {
-                    alert(res.mesaj);
-                }
-            });
-        },
-        adminSil: function adminSil(id) {
-            $.ajax({
-                url: url("/admin/admin-sil/" + id),
-                type: 'GET',
-                success: function success(res) {
-                    alert(res.mesaj);
-                }
-            });
-        }
-    }
-});
-
-var video_ekle = new Vue({
-    el: '#video_ekle',
-    data: {
-        id: 0,
-        dil: 0,
-        kaynak: null,
-        part1: null,
-        part2: null,
-        part3: null,
-        part4: null,
-        part5: null,
-        part6: null
-    },
-    methods: {
-        ekle: function ekle() {
-            var id = video_ekle.id;
-            var dil = video_ekle.dil;
-            var kaynak = video_ekle.kaynak;
-            var part1 = video_ekle.part1;
-            var part2 = video_ekle.part2;
-            var part3 = video_ekle.part3;
-            var part4 = video_ekle.part4;
-            var part5 = video_ekle.part5;
-            var part6 = video_ekle.part6;
-            $.ajax({
-                url: url("/admin/video-ekle"),
-                type: 'POST',
-                data: { _token: _token, id: id, dil: dil, part1: part1, kaynak: kaynak, part2: part2, part3: part3, part4: part4, part5: part5, part6: part6 },
-                success: function success(res) {
-                    alert(res.mesaj);
-                }
-            });
-        }
-    }
-});
-
 var player = new Vue({
     el: '#player',
     data: {
         videolar: [],
         selected: {},
         part: 1,
-        videoyok: false
+        videoyok: false,
+        id: 0
     },
     created: function created() {
-        var id = $("#movie_id").val();;
+        var id = $("#movie_id").val();
         setTimeout(function () {
             $.ajax({
                 url: url("/get-videos/" + id),
                 type: 'GET',
                 success: function success(res) {
                     player.videolar = res;
-                    player.selected = res[0];
-                    if (player.videolar.length == 0) player.videoyok = true;
+                    if (player.videolar.length == 0) player.videoyok = true;else {
+                        player.id = 0;
+                        player.selected = res[0];
+                    }
                 }
             });
         }, 1500);
+    },
+    watch: {
+        id: function id(val) {
+            player.selected = player.videolar[player.id];
+        }
     },
     methods: {
         menusu: function menusu(name) {
@@ -43001,130 +42812,6 @@ var player = new Vue({
         }
     }
 });
-
-var videolar = new Vue({
-    el: '#videolar',
-    data: {
-        id: 0,
-        videolar: [],
-        videoyok: false
-    },
-    methods: {
-        getir: function getir() {
-            var id = videolar.id;
-            if (id == 0) return alert("Lütfen bir film seçiniz");
-
-            $.ajax({
-                url: url("/get-videos/" + id),
-                type: 'GET',
-                success: function success(res) {
-                    videolar.videolar = res;
-                    if (videolar.videolar.length == 0) videolar.videoyok = true;else videolar.videoyok = false;
-                }
-            });
-        },
-        sil: function sil(id) {
-            $.ajax({
-                url: url("/admin/video-sil"),
-                type: 'POST',
-                data: { _token: _token, id: id },
-                success: function success(res) {
-                    alert(res.mesaj);
-                }
-            });
-        }
-    }
-});
-
-var mesajlar = new Vue({
-    el: '#mesajlar',
-    methods: {
-        sil: function sil(id) {
-            $.ajax({
-                url: url("/admin/mesaj-sil"),
-                type: 'POST',
-                data: { _token: _token, id: id },
-                success: function success(res) {
-                    alert(res.mesaj);
-                }
-            });
-        },
-        oku: function oku(id) {
-            $.ajax({
-                url: url("/admin/get-mesaj"),
-                type: 'POST',
-                data: { _token: _token, id: id },
-                success: function success(res) {
-                    alert("Mail adresi: " + res.mail + "<br><br>" + res.mesaj);
-                }
-            });
-        }
-    }
-});
-
-var cast = new Vue({
-    el: '.cast',
-    data: {
-        show: 1
-    }
-});
-
-var film_edit = new Vue({
-    el: '#film_edit',
-    data: {
-        film: [],
-        id: 0,
-        show: false
-
-    },
-    methods: {
-        filmGetir: function filmGetir() {
-            $.ajax({
-                url: url("/admin/film-getir"),
-                type: 'POST',
-                data: { _token: _token, id: film_edit.id },
-                success: function success(res) {
-                    film_edit.film = res;
-                    if (res.id) film_edit.show = true;
-                }
-            });
-        },
-        filmSil: function filmSil() {
-            $.ajax({
-                url: url("/admin/film-sil"),
-                type: 'POST',
-                data: { _token: _token, id: film_edit.id },
-                success: function success(res) {
-                    alert(res.mesaj);
-                }
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

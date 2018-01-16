@@ -107,7 +107,11 @@ class PagesController extends Controller
 
         $data['movie'] = $movie;
 
-        return view("izle", $data);
+        $agent = new Agent();
+        $page = "izle";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.izle";
+        return view($page, $data);
     }
 
     public function kategoriler()

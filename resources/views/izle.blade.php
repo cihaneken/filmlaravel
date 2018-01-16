@@ -1,8 +1,7 @@
 @extends("layouts.app")
 
 @section("title", $movie->name . " izle")
-@section("desc", $movie->name . " filmini türkçe dublaj veya türkçe altyazılı olarak izleyebilirsiniz. 
-Tüm filmlerimizde HD olarak 720p ve 1080p izleme seçenekleri vardır.")
+@section("desc", $movie->name . " filmini türkçe dublaj veya türkçe altyazılı olarak izleyebilirsiniz. Tüm filmlerimizde HD olarak 720p ve 1080p izleme seçenekleri vardır.")
 @section("keyw", $movie->name . " izle,".$movie->name.", ".$movie->name. " türkçe altyazılı izle,".$movie->name.", türkçe dublaj izle")
 <input type="hidden" id="movie_id" value="{{ $movie->id }}">
 @section("content")

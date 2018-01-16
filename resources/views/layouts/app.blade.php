@@ -8,9 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app-url" content="{{ url('/') }}">
-    <meta name="description" content="{{ yield('desc', config('app.name', 'filmize').' 
-    film izleme mekanınız. İstediğiniz filmi türkçe altyazılıveya dublaj olarak izleyebilirsiniz.') }}">
-    <meta name="keywords" content="{{ yield('keyw', 'film izle, türkçe dublaj, ingilizce, altyazı, fragman, izle, film') }}">
+    <meta name="description" content="@yield('desc')">
+    <meta name="keywords" content="@yield('keyw')">
     <title>{{ config('app.name', 'Movie V1') }} - @yield("title", "Film izle")</title>
 
     <!-- Styles -->

@@ -28,6 +28,7 @@
                     <ul class="menu">
                         <li><a href="{{ url('admin') }}"><i class="fa fa-home"></i> Anasayfa</a></li>
                         <li><a href="{{ url('admin/film-ekle') }}"><i class="fa fa-tv"></i> Film Ekle</a></li>
+                        <li><a href="{{ url('admin/film-edit') }}"><i class="fa fa-edit"></i> Film Düzenle</a></li>
                         <li><a href="{{ url('admin/kullanicilar') }}"><i class="fa fa-users"></i> Kullanıcılar</a></li>
                         <li><a href="{{ url('admin/mesajlar') }}"><i class="fa fa-envelope"></i> Mesajlar</a></li>
                         <li><a href="{{ url('admin/videolar') }}"><i class="fa fa-play"></i> Videolar</a></li>

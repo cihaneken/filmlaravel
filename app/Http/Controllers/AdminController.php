@@ -82,4 +82,11 @@ class AdminController extends Controller
 
         return view("admin.mesajlar", $data);
     }
+
+    public function film_edit()
+    {
+        $data = [];
+        $data['filmler'] = Movie::select('id', 'name')->orderBy('name', 'asc')->get();
+        return view("admin.film_edit", $data); 
+    }
 }

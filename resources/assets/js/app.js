@@ -329,3 +329,44 @@ const mesajlar = new Vue({
         }
     }
 });
+
+const cast = new Vue({
+    el: '.cast',
+    data: {
+        show: 1
+    }
+});
+
+const film_edit = new Vue({
+    el: '#film_edit',
+    data: {
+        film: [],
+        id: 0,
+        show: false,
+        
+    },
+    methods: {
+        filmGetir: () => {
+            $.ajax({
+                url: url("/admin/film-getir"),
+                type: 'POST',
+                data: { _token, id: film_edit.id },
+                success: (res) => {
+                    film_edit.film = res;
+                    if (res.id)
+                        film_edit.show = true;
+                }
+            });
+        },
+        filmSil: () => {
+            $.ajax({
+                url: url("/admin/film-sil"),
+                type: 'POST',
+                data: { _token, id: film_edit.id },
+                success: (res) => {
+                    alert(res.mesaj);
+                }
+            });
+        }
+    }
+});

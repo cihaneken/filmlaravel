@@ -142,7 +142,23 @@
             </div>
             <div class="cast">
                 <h1 class="renkli"><span style="border-color:#fa3556;">Oyuncular</span></h1>
-                <ul>
+                <ul v-if="show == 1">
+                    @foreach($movie->actors(6) as $actor)
+                        <li>
+                            <a href="{{ $actor->url() }}">
+                                <img src="{{ $actor->photo2() }}" alt="">
+                                <div class="name">{{ $actor->name }}</div>
+                            </a>
+                        </li>
+                    @endforeach
+                    <div class="clear"></div>
+                </ul>
+
+                <div style="text-align:center" @click="show = 2" v-if="show == 1">
+                    <button class="btn btn-primary">Hepsini Göster</button>
+                </div>
+
+                <ul v-if="show == 2">
                     @foreach($movie->actors() as $actor)
                         <li>
                             <a href="{{ $actor->url() }}">
@@ -153,6 +169,10 @@
                     @endforeach
                     <div class="clear"></div>
                 </ul>
+
+                <div style="text-align:center" @click="show=1" v-if="show == 2">
+                    <button class="btn btn-primary">Daha az gör</button>
+                </div>
             </div>
             <div class="clear"></div>
         </div>

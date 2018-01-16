@@ -1279,6 +1279,46 @@ var mesajlar = new Vue({
     }
 });
 
+var cast = new Vue({
+    el: '.cast',
+    data: {
+        show: 1
+    }
+});
+
+var film_edit = new Vue({
+    el: '#film_edit',
+    data: {
+        film: [],
+        id: 0,
+        show: false
+
+    },
+    methods: {
+        filmGetir: function filmGetir() {
+            $.ajax({
+                url: url("/admin/film-getir"),
+                type: 'POST',
+                data: { _token: _token, id: film_edit.id },
+                success: function success(res) {
+                    film_edit.film = res;
+                    if (res.id) film_edit.show = true;
+                }
+            });
+        },
+        filmSil: function filmSil() {
+            $.ajax({
+                url: url("/admin/film-sil"),
+                type: 'POST',
+                data: { _token: _token, id: film_edit.id },
+                success: function success(res) {
+                    alert(res.mesaj);
+                }
+            });
+        }
+    }
+});
+
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {

@@ -13,6 +13,57 @@ use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
+    public function film_edit(Request $req)
+    {
+        $data = [];
+
+        $film = Movie::find($req->id);
+
+        $film->name = $req->name;
+        $film->overview = $req->overview;
+        $film->imdb_id = $req->imdb_id;
+        $film->puan = $req->puan;
+        $film->backdrop_url = $req->backdrop_url;
+        $film->poster_url = $req->poster_url;
+        $film->orj_name = $req->orj_name;
+        $film->slug = str_slug($req->name, "-");
+        
+        if (!$film->save()){
+            $data['error'] = "Bir hata oluştu.";
+            return view("admin.film_edit", $data); 
+        }
+        
+        $data['filmler'] = Movie::select('id', 'name')->orderBy('name', 'asc')->get();
+
+        $data['success'] = $film->name . " güncellendi";
+        return view("admin.film_edit", $data); 
+        
+        
+    }
+    public function getFilm(Request $req)
+    {
+        return Movie::find($req->id);
+    }
+    public function delete(Request $req)
+    {
+        $m = Movie::find($req->id);
+
+        if (!$m){
+            $data = ['mesaj' => "Film bulunamadı"];
+            return $data;
+        }
+
+        if ($m->delete()){
+            DB::table('actor_connector')->where('movie_id', $m->id)->delete();
+            DB::table('category_connector')->where('movie_id', $m->id)->delete();
+            $data = ['mesaj' => "Film silindi"];
+            return $data;
+        }else{
+            $data = ['mesaj' => "Film silinirken hata oluştu."];
+            return $data;
+        }
+
+    }
     public function get_videos($id)
     {
         return Video::where('movie_id', $id)->get();

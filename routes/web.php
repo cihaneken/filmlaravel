@@ -84,6 +84,11 @@ Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function
     Route::post('/get-mesaj', 'MesajController@getMesaj');
 
     Route::get('/film-ekle', 'AdminController@film_ekle');
+    Route::get('/film-edit', 'AdminController@film_edit');
+    Route::post('/film-edit', 'MovieController@film_edit');
+    Route::post('/film-getir', 'MovieController@getFilm');
+    Route::post('/film-sil', 'MovieController@delete');
+
     Route::get('/add-movie-from-tmdb/{tmdb_id}', 'MovieController@addMovieFromTmDB');
     Route::get('/add-up-comings', 'MovieController@addUpComings');
 });

@@ -1,0 +1,104 @@
+* {
+    margin:0; padding:0;
+}
+body {
+    color:#fff;
+    background: #0E1127;
+}
+.container-fluid {
+    padding: 0 !important;
+}
+.clear {
+    clear: both;
+}
+.row {
+     margin-right: 0 !important;
+}
+#header {
+    background: rgba(66,40,151,1);
+    background: -moz-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(66,40,151,1)), color-stop(100%, rgba(135,78,171,1)));
+    background: -webkit-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: -o-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: -ms-linear-gradient(left, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    background: linear-gradient(to right, rgba(66,40,151,1) 0%, rgba(135,78,171,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
+
+    .top {
+        padding: 20px;
+        .logo {
+            font-size:16px; font-weight: bold;
+        }
+        .user {
+            .col {
+                padding-left: 0;
+            }
+            a {
+                padding: 0; color:#fff; font-weight: bold;
+                i {
+                    color:orange;
+                }
+            }
+        }
+    }
+
+    
+
+    .menu {
+        background: rgba(255,255,255,0.1);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        .btn {
+            margin-left: 20px;
+            background: transparent; color:#fff; border: none;
+            padding-left: 0;
+        }
+        .input-group {
+            margin-bottom: 0 !important;
+            input {
+                background: transparent; color:#fff;
+                border:none; outline: none !important;
+                &:focus {
+                    box-shadow: none !important;
+                }
+                &::placeholder {
+                    color:#ccc;
+                }
+            }
+            span {
+                background: transparent; color:#fff;
+                border: none;
+            }
+        }
+    }
+}
+
+#content {
+    padding: 20px;
+    h5 {
+        color:#666c98;
+        border-bottom: 3px dotted #666c98;
+        font-size: 14px; font-weight: bold;
+        padding-bottom: 10px; margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    .filmler {
+        .film {
+            img {
+                width: 100%;
+                border-radius: 5px;
+                box-shadow: 3px 3px 3px rgba(0,0,0,.56);
+            }
+            .name {
+                height: 50px; overflow: hidden; color:#fff;
+                font-weight: bold;
+                margin-top: 5px;
+                text-align: center;
+                .puan {
+                    color: orange;
+                }
+            }
+        }
+    }
+}

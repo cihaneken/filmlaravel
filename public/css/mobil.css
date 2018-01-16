@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+  background: #0E1127;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.row {
+  margin-right: 0 !important;
+}
+
+#header {
+  background: #422897;
+  background: -webkit-gradient(left top, right top, color-stop(0%, #422897), color-stop(100%, #874eab));
+  background: -webkit-gradient(linear, left top, right top, from(#422897), to(#874eab));
+  background: linear-gradient(to right, #422897 0%, #874eab 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#422897', endColorstr='#874eab', GradientType=1 );
+}
+
+#header .top {
+  padding: 20px;
+}
+
+#header .top .logo {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#header .top .user .col {
+  padding-left: 0;
+}
+
+#header .top .user a {
+  padding: 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+#header .top .user a i {
+  color: orange;
+}
+
+#header .menu {
+  background: rgba(255, 255, 255, 0.1);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#header .menu .btn {
+  margin-left: 20px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding-left: 0;
+}
+
+#header .menu .input-group {
+  margin-bottom: 0 !important;
+}
+
+#header .menu .input-group input {
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none !important;
+}
+
+#header .menu .input-group input:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#header .menu .input-group input::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+#header .menu .input-group input:-ms-input-placeholder {
+  color: #ccc;
+}
+
+#header .menu .input-group input::-ms-input-placeholder {
+  color: #ccc;
+}
+
+#header .menu .input-group input::placeholder {
+  color: #ccc;
+}
+
+#header .menu .input-group span {
+  background: transparent;
+  color: #fff;
+  border: none;
+}
+
+#content {
+  padding: 20px;
+}
+
+#content h5 {
+  color: #666c98;
+  border-bottom: 3px dotted #666c98;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#content .filmler .film img {
+  width: 100%;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.56);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.56);
+}
+
+#content .filmler .film .name {
+  height: 50px;
+  overflow: hidden;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
+#content .filmler .film .name .puan {
+  color: orange;
+}
+

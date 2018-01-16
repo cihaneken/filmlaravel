@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Movie;
@@ -80,7 +80,13 @@ class PagesController extends Controller
         $data['slider'] = Movie::where("puan", ">", 6)->inRandomOrder()->limit(10)->get();
         $data['categories'] = Category::orderBy('name', "ASC")->get();
         $data['movies'] = Movie::orderBy('id', 'DESC')->limit(36)->get();
-        return view('home', $data);
+
+        $agent = new Agent();
+        $page = "home";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.home";
+
+        return view($page, $data);
     }
 
     public function izle($id, $slug = false)

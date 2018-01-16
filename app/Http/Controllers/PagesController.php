@@ -14,7 +14,13 @@ class PagesController extends Controller
 {
     public function iletisim()
     {
-        return view("iletisim");
+        $data = [];
+        $agent = new Agent();
+        $page = "iletisim";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.iletisim";
+
+        return view($page, $data);
     }
     public function arsiv()
     {
@@ -125,7 +131,12 @@ class PagesController extends Controller
 
         $data['kategoriler'] = Category::orderBy('name', 'ASC')->get();
 
-        return view("kategoriler", $data);
+        $agent = new Agent();
+        $page = "kategoriler";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.kategoriler";
+
+        return view($page, $data);
     }
 
     public function kategori($kategori, $sirala = "puan")
@@ -141,7 +152,12 @@ class PagesController extends Controller
         $data['kategori'] = $kategori;
         $data['filmler'] = $filmler;
 
-        return view("kategori", $data);
+        $agent = new Agent();
+        $page = "kategori";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.kategori";
+
+        return view($page, $data);
     }
 
     public function giris()

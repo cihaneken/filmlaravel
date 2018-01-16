@@ -52,6 +52,8 @@
                 <li class="list-group-item"><a href="{{ url('/') }}"><i class="fa fa-home"></i> Anasayfa</a></li>
                 <li class="list-group-item"><a href="{{ url('/arsiv') }}"><i class="fa fa-archive"></i> Arşiv</a></li>
                 <li class="list-group-item"><a href="{{ url('/kategoriler') }}"><i class="fa fa-bars"></i> Kategoriler</a></li>
+                <li class="list-group-item"><a href="{{ url('/rastgele') }}"><i class="fa fa-random"></i> Rastgele</a></li>
+                <li class="list-group-item"><a href="{{ url('/iletisim') }}"><i class="fa fa-envelope"></i> İletişim</a></li>
             </ul>
         </div>
         <div id="content">

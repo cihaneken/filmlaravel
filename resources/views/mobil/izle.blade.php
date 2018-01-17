@@ -1,5 +1,7 @@
 @extends("mobil.mobil")
 @section("title", $movie->name . " izle")
+@section("desc", $movie->name . " filmini mobil türkçe dublaj veya türkçe altyazılı olarak izleyebilirsiniz. Tüm filmlerimizde HD olarak 720p ve 1080p izleme seçenekleri vardır.")
+@section("keyw", $movie->name . " izle, mobil,".$movie->name.", ".$movie->name. " türkçe altyazılı izle,".$movie->name.", türkçe dublaj izle")
 @section('content')
 <h5><i class="fa fa-play" style="color:orange"></i> &nbsp;{{ $movie->name(35) }}</h5>
 

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app-url" content="{{ url('/') }}">
+
+    <meta name="description" content="@yield('desc')">
+    <meta name="keywords" content="@yield('keyw')">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/mobil.css?v=1.'.rand(0,9999)) }}">

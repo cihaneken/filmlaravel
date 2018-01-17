@@ -5,6 +5,9 @@ a:focus {
     color: #fff;
     text-decoration: none;
 }
+.fa-lg {
+    vertical-align: 15%;
+}
 * {
     font-family: 'Open Sans', sans-serif;
     outline: none;
@@ -633,69 +636,71 @@ h1.renkli {
             border-color:#fa3556;
         }
 
-        ul.sonuclar_ul li.sonuclar_li {
-            float: left;
-            width: 48%;
-            height:217px;
-            margin-right: 4%;
-            margin-bottom: 4%;
-            &:nth-child(2n) {
-                margin-right: 0;
+       
+
+        
+    }
+}
+ul.sonuclar_ul li.sonuclar_li {
+    overflow: hidden;
+    float: left;
+    width: 48%;
+    height:217px;
+    margin-right: 4%;
+    margin-bottom: 4%;
+    &:nth-child(2n) {
+        margin-right: 0;
+    }
+    img {
+        width: 100%; border-radius: 5px;
+    }
+
+    position: relative;
+
+    .info {
+        position: absolute; 
+        top:0; right:0; left:0; bottom:0;
+        padding: 10px; background: rgba(0,0,0,.75);
+        border-radius: 4px;
+        .name {
+            font-size: 17px; font-weight: bold; margin-bottom: 6px;
+            text-shadow: 3px 3px 3px rgba(0,0,0,.7);
+            span {
+                color:#fff;
+                float: right;
+                width: 40px; height:40px; line-height: 40px; text-align: center;
+                border-radius: 40px; background: linear-gradient(#432998, #874EAB);
+                font-size: 14px;
+                box-shadow: 3px 3px 3px rgba(0,0,0,.66);
+                text-shadow: none;
             }
-            img {
-                width: 100%; border-radius: 5px;
-            }
+        }
+        .sene {
+            margin-bottom: 50px; font-weight: 600;
+            color:#ccc;
+        }
+        .actors {
+            text-align: center;
+            li {
+                float:none; margin-right: 5px;
+                display: inline-block;
+                &:last-child {
+                    margin-right:0;
+                }
+                img {
+                    width: 45px; opacity: 0.7; height: 68px;
+                    box-shadow: 3px 3px 3px rgba(0,0,0,.7);
 
-            position: relative;
-
-            .info {
-                position: absolute; 
-                top:0; right:0; left:0; bottom:0;
-                padding: 10px; background: rgba(0,0,0,.75);
-                border-radius: 4px;
-                .name {
-                    font-size: 17px; font-weight: bold; margin-bottom: 6px;
-                    text-shadow: 3px 3px 3px rgba(0,0,0,.7);
-                    span {
-                        color:#fff;
-                        float: right;
-                        width: 40px; height:40px; line-height: 40px; text-align: center;
-                        border-radius: 40px; background: linear-gradient(#432998, #874EAB);
-                        font-size: 14px;
-                        box-shadow: 3px 3px 3px rgba(0,0,0,.66);
-                        text-shadow: none;
+                    &:hover {
+                        opacity: 1;
                     }
-                }
-                .sene {
-                    margin-bottom: 50px; font-weight: 600;
-                    color:#ccc;
-                }
-                .actors {
-                    text-align: center;
-                    li {
-                        float:none; margin-right: 5px;
-                        display: inline-block;
-                        &:last-child {
-                            margin-right:0;
-                        }
-                        img {
-                            width: 45px; opacity: 0.7; height: 68px;
-                            box-shadow: 3px 3px 3px rgba(0,0,0,.7);
-
-                            &:hover {
-                                opacity: 1;
-                            }
-                        }
-                    }
-                }
-
-                &:hover {
-                    background: rgba(0,0,0,.4);
                 }
             }
         }
 
-        
+        &:hover {
+            background: rgba(0,0,0,.4);
+        }
     }
 }
 .sayfalama {

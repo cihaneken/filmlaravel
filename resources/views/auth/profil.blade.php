@@ -2,11 +2,7 @@
 
 @section("title", "Profilim")
 
-@if ($user->sonIzlenen())
-<div class="auth-bg" style="background:url({{ $user->sonIzlenen()->backdrop_orj() }});">
-    &nbsp;
-</div>
-@endif
+
 
 @section("content")
 <div id="profil">
@@ -42,6 +38,42 @@
             </ul>
             <div class="clear"></div>
         </div>
+        <br>
+        <br>
+        <br>
+        <h1 class="renkli"><span style="font-size:17px;">SON İZLENEN FİLMLER</span></h1>
+        <ul class="sonuclar_ul">
+            @foreach($user->izlenenFilmler() as $film)
+            <li class="sonuclar_li">
+                <a href="{{ $film->url() }}">
+                    <img src="{{ $film->mini_bg() }}" alt="">
+                    <div class="info">
+                        <div class="name">{{ $film->name(35) }} <span>{{ $film->puan }}</span></div>
+                        <div class="sene">
+                            {{ $film->year }} | 
+                            @foreach($film->categories() as $kat)
+                                <span>{{ $kat->name }}</span>
+                            @endforeach
+                        </div>
+                        <div class="actors">
+                            <ul>
+                                @foreach($film->actors(5) as $actor)
+                                <li>
+                                    <img title="{{ $actor->name }}" src="{{ $actor->photo() }}" alt="">
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            @endforeach
+            <div class="clear"></div>
+            @if (!count($user->izlenenFilmler()))
+                Hiç film izlememiş.
+                <br><br>
+            @endif
+        </ul>
     </div>
 </div>
 @endsection

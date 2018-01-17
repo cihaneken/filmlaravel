@@ -46,6 +46,24 @@ class User extends Authenticatable
         return DB::table('izlemeler')->orderBy('id', 'DESC')->where('user_id', $this->id)->get();
     }
 
+    public function izlenenFilmler($limit = 10)
+    {
+        $filmler = [];
+        $i = 0;
+        foreach ($this->izlemeler() as $izleme) {
+            if ($i >= $limit)
+                break;
+            $film = Movie::find($izleme->movie_id);
+            if ($film)
+            {
+                $filmler[] = $film;
+                $i++;
+            }
+        }
+        
+        return $filmler;
+    }
+
     public function sonIzlenen()
     {
         if (!count($this->izlemeler()))

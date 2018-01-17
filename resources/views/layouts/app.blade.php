@@ -119,9 +119,27 @@
         </div>
         <div class="clear"></div>
         <!-- Footer -->
-        <div id="footer">
+        <div id="footer" style="color:#1f2342;">
             <div class="center">
-                Deneme
+                <div class="row">
+                    <div class="col col-4" style="float:left;">
+                        <h2>{{ config('app.name') }}</h2>
+                        Copyright &copy; {{ date('Y') }} Tüm Hakları Saklıdır.
+                    </div>
+                    <div class="col col-4" style="float:right;">
+                        <a style="color:#aaa" href="{{ url('/') }}">Anasayfa</a> /
+                        <a style="color:#aaa" href="{{ url('/arsiv') }}">Arşiv</a> /
+                        <a style="color:#aaa" href="{{ url('/kategoriler') }}">Kategoriler</a> /
+                        <a style="color:#aaa" href="{{ url('/listeler') }}">Listeler</a> /
+                        <a style="color:#aaa" href="{{ url('/iletisim') }}">İletişim</a> 
+                    </div>
+                    <div class="clear"></div>
+                    <br>
+                    <div class="col col-4">
+                        Eğer sitemizde size ait bir film bulunuyorsa ve kaldırmak istiyorsanız; Filmin size ait olduğu belgelerle birlikte iletişim kısmından 
+                        bize ulaşabilirsiniz. Film en geç 3 iş günü içerisinde kaldırılacaktır.
+                    </div>
+                </div>
             </div>
         </div>
         <!-- @Footer -->

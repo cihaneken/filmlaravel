@@ -254,14 +254,22 @@ class PagesController extends Controller
     {
         $data = [];
         $data['user'] = Auth::user();
-        return view("auth.profil", $data);
+        $agent = new Agent();
+        $page = "auth.profil";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.profil";
+        return view($page, $data);
     }
 
     public function profil_public($slug)
     {
         $data = [];
         $data['user'] = User::where('slug', $slug)->first();
-        return view("auth.profil", $data);
+        $agent = new Agent();
+        $page = "auth.profil";
+        if ($agent->isMobile() || $agent->isTablet())
+            $page = "mobil.profil";
+        return view($page, $data);
     }
 
     public function ara()

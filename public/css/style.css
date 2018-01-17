@@ -3,6 +3,10 @@
   text-decoration: none;
 }
 
+.fa-lg {
+  vertical-align: 15%;
+}
+
 * {
   font-family: 'Open Sans', sans-serif;
   outline: none;
@@ -796,7 +800,8 @@ h1.renkli a:hover {
   border-color: #fa3556;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li {
+ul.sonuclar_ul li.sonuclar_li {
+  overflow: hidden;
   float: left;
   width: 48%;
   height: 217px;
@@ -805,16 +810,16 @@ h1.renkli a:hover {
   position: relative;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li:nth-child(2n) {
+ul.sonuclar_ul li.sonuclar_li:nth-child(2n) {
   margin-right: 0;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li img {
+ul.sonuclar_ul li.sonuclar_li img {
   width: 100%;
   border-radius: 5px;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info {
+ul.sonuclar_ul li.sonuclar_li .info {
   position: absolute;
   top: 0;
   right: 0;
@@ -825,14 +830,14 @@ h1.renkli a:hover {
   border-radius: 4px;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .name {
+ul.sonuclar_ul li.sonuclar_li .info .name {
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 6px;
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .name span {
+ul.sonuclar_ul li.sonuclar_li .info .name span {
   color: #fff;
   float: right;
   width: 40px;
@@ -848,27 +853,27 @@ h1.renkli a:hover {
   text-shadow: none;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .sene {
+ul.sonuclar_ul li.sonuclar_li .info .sene {
   margin-bottom: 50px;
   font-weight: 600;
   color: #ccc;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors {
+ul.sonuclar_ul li.sonuclar_li .info .actors {
   text-align: center;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li {
+ul.sonuclar_ul li.sonuclar_li .info .actors li {
   float: none;
   margin-right: 5px;
   display: inline-block;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li:last-child {
+ul.sonuclar_ul li.sonuclar_li .info .actors li:last-child {
   margin-right: 0;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li img {
+ul.sonuclar_ul li.sonuclar_li .info .actors li img {
   width: 45px;
   opacity: 0.7;
   height: 68px;
@@ -876,11 +881,11 @@ h1.renkli a:hover {
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info .actors li img:hover {
+ul.sonuclar_ul li.sonuclar_li .info .actors li img:hover {
   opacity: 1;
 }
 
-#arsiv .sonuclar ul.sonuclar_ul li.sonuclar_li .info:hover {
+ul.sonuclar_ul li.sonuclar_li .info:hover {
   background: rgba(0, 0, 0, 0.4);
 }
 

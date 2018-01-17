@@ -17,16 +17,27 @@
         <div id="header">
             <div class="row top">
                 <div class="col col-sm-6 logo">
-                    <i class="fa fa-tv"></i> {{ config('app.name') }}
+                    <a href="{{ url('/') }}" style="color:#fff;">
+                        <i class="fa fa-tv"></i> {{ config('app.name') }}
+                    </a>
                 </div>
                 <div class="col col-sm-6 user text-right">
                     <div class="row">
+                        @if(!Auth::check())
                         <div class="col col-sm-6">
                             <a href="{{ url('auth/kayit') }}" class="btn"><i class="fa fa-user-plus fa-lg"></i> Kayıt</a>
                         </div>
                         <div class="col col-sm-6">
                             <a href="{{ url('auth/giris') }}" class="btn"><i class="fa fa-user fa-lg"></i> Giriş</a>
                         </div>
+                        @else
+                        <div class="col col-sm-6">
+                            <a href="{{ url('admin') }}" class="btn"><i class="fa fa-cog fa-lg"></i> Admin</a>
+                        </div>
+                        <div class="col col-sm-6">
+                            <a href="{{ url('auth/profil') }}" class="btn"><i class="fa fa-user fa-lg"></i> Profil</a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

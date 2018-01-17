@@ -69,9 +69,6 @@
                                     Giriş Yap
                                 </button>
 
-                                <a class="btn btn-link" href="">
-                                    Şifreni mi unuttun?
-                                </a>
                             </div>
                         </div>
                     </form>

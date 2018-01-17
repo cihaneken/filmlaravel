@@ -126,7 +126,7 @@
                         <h2>{{ config('app.name') }}</h2>
                         Copyright &copy; {{ date('Y') }} Tüm Hakları Saklıdır.
                     </div>
-                    <div class="col col-4" style="float:right;">
+                    <div class="col col-4" style="float:right; margin-top:20px;">
                         <a style="color:#aaa" href="{{ url('/') }}">Anasayfa</a> /
                         <a style="color:#aaa" href="{{ url('/arsiv') }}">Arşiv</a> /
                         <a style="color:#aaa" href="{{ url('/kategoriler') }}">Kategoriler</a> /

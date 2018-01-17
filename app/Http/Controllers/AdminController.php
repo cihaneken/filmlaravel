@@ -8,12 +8,28 @@ use App\User;
 use App\Movie;
 use App\Video;
 use App\Mesaj;
+use App\Liste;
+use App\Comment;
+use App\Actor;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view("admin.index");
+        $filmler = Movie::all();
+        $izlemeler = 0;
+        foreach ($filmler as $film) {
+            $izlemeler += $film->seen;
+        }
+
+        $data = [
+            'uyeler' => count(User::all()),
+            'yorumlar' => count(Comment::all()),
+            'gosterim' => $izlemeler,
+            'listeler' => count(Liste::all()),
+            'oyuncular' => count(Actor::all()),
+        ];
+        return view("admin.index", $data);
     }
 
     public function film_ekle()

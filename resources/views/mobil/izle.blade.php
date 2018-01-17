@@ -1,5 +1,5 @@
 @extends("mobil.mobil")
-
+@section("title", $movie->name . " izle")
 @section('content')
 <h5><i class="fa fa-play" style="color:orange"></i> &nbsp;{{ $movie->name(35) }}</h5>
 

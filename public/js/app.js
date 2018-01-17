@@ -43062,6 +43062,25 @@ var mesajlar = new Vue({
     }
 });
 
+var bilgileriDuzenle = new Vue({
+    el: '.bilgileriDuzenle',
+    methods: {
+        kaydet: function kaydet() {
+            var sifre = $("#sifre").val();
+            var mail = $("#mail").val();
+            var avatar = $("#avatar").val();
+            $.ajax({
+                url: url("/auth/update"),
+                type: 'POST',
+                data: { _token: _token, sifre: sifre, mail: mail, avatar: avatar },
+                success: function success(res) {
+                    alert(res.mesaj);
+                }
+            });
+        }
+    }
+});
+
 var cast = new Vue({
     el: '.cast',
     data: {

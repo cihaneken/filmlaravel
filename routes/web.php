@@ -45,6 +45,7 @@ Route::get('/arsiv', 'PagesController@arsiv');
 
 
 Route::get('/auth/giris', 'PagesController@giris')->name('giris');
+Route::post('/auth/update', 'PagesController@update_user')->name('update_user');
 Route::get('/auth/cikis', function (){
     Auth::logout();
     return redirect("auth/giris");

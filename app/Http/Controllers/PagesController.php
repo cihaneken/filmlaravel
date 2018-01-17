@@ -12,6 +12,29 @@ use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
+    public function update_user(Request $req)
+    {
+        $data = [];
+        if (strlen($req->mail) < 3 || !$req->avatar){
+            $data['mesaj'] = "Lütfen bir avatar url ve bir mail adresi yaazınız.";
+            return $data;
+        }
+
+        $user = User::find( Auth::user()->id );
+        $user->email = $req->mail;
+        $user->avatar = $req->avatar;
+
+        if ($req->sifre)
+            $user->password = bcrypt($req->sifre);
+        
+        if ($user->save()){
+            $data['mesaj'] = "Bilgileriniz güncellenmiştir.";
+            return $data;
+        }else{
+            $data['mesaj'] = "Bir hata oluştu. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+            return $data;
+        }
+    }
     public function iletisim()
     {
         $data = [];

@@ -8,7 +8,11 @@
 <div id="profil">
     <div class="center">
         <div class="top">
-            <h1 class="renkli"><span>{{ $user->username }}</span></h1>
+            <h1 class="renkli"><span>{{ $user->username }}</span> 
+                @if(Auth::user()->id == $user->id)
+                <a href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i> Profili Düzenle</a>
+                @endif
+            </h1>
             <div class="avatar">
                 <img src="{{ $user->avatar }}" alt="{{ $user->username }} avatarı">
             </div>
@@ -77,3 +81,38 @@
     </div>
 </div>
 @endsection
+
+
+@if (Auth::user()->id == $user->id)
+<div class="modal fade bilgileriDuzenle" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bilgileri Düzenle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="">Mail</label>
+            <input type="text" id="mail" class="form-control" value="{{ $user->email }}">
+        </div>
+        <div class="form-group">
+            <label for="">Avatar URL</label>
+            <input type="text" id="avatar" class="form-control" value="{{ $user->avatar }}">
+        </div>
+        <div class="form-group">
+            <label for="">Şifre</label>
+            <input type="text" id="sifre" class="form-control">
+            <small>* Değiştirmek istemiyorsanız boş bırakınız.</small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <button type="button" class="btn btn-primary" @click="kaydet()">Kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endif

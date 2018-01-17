@@ -27,26 +27,7 @@
                 <div class="logo">
                     {{ config('app.name', 'Movie V1') }}
                 </div>
-                <div class="user show_mobil">
-                    @if(!Auth::check())
-                    <a href="{{ url('/auth/giris') }}" class="user-button giris">Giriş Yap</a>
-                    <a href="{{ url('/auth/kayit') }}" class="user-button kayit">Kayıt Ol</a>
-                    @else
-                    <div class="giris_yapildi">
-                        @if(Auth::user()->is_admin)
-                            <a style="display: inline-block;margin-top: 7px;float:left;" href="{{ url('admin') }}" id="admin_link">
-                                <i class="fa fa-cog fa-2x"></i>
-                            </a>
-                        @endif
-                        <a href="{{ url('auth/profil') }}">
-                            <div class="name">
-                                {{ Auth::user()->username }} <i class="fa fa-angle-right"></i>
-                            </div>
-                            <img src="{{ Auth::user()->avatar }}" alt="">
-                        </a>
-                    </div>
-                    @endif
-                </div>
+                
                 <div class="search show_tam">
                     <form action="{{ url('/ara') }}">
                         <input type="text" name="q" value="{{ isset($q) ? $q:null }}" placeholder="Film veya oyuncu ara..">
@@ -71,6 +52,9 @@
                                 <i class="fa fa-cog fa-2x"></i>
                             </a>
                         @endif
+                        <a style="display: inline-block;margin-top: 7px; margin-left:20px;" href="{{ url('auth/cikis') }}" id="admin_link">
+                            <i class="fa fa-sign-out fa-2x"></i>
+                        </a>
                         <a href="{{ url('auth/profil') }}">
                             <div class="name">
                                 {{ Auth::user()->username }} <i class="fa fa-angle-right"></i>

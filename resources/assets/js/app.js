@@ -330,6 +330,25 @@ const mesajlar = new Vue({
     }
 });
 
+const bilgileriDuzenle = new Vue({
+    el: '.bilgileriDuzenle',
+    methods: {
+        kaydet () {
+            var sifre = $("#sifre").val();
+            var mail = $("#mail").val();
+            var avatar = $("#avatar").val();
+            $.ajax({
+                url: url("/auth/update"),
+                type: 'POST',
+                data: { _token, sifre, mail, avatar },
+                success: (res) => {
+                    alert(res.mesaj);
+                }
+            });
+        }
+    }
+});
+
 const cast = new Vue({
     el: '.cast',
     data: {

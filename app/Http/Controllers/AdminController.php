@@ -48,7 +48,11 @@ class AdminController extends Controller
     {
         $data = [];
         $user = User::find($id);
-
+        if ($user->id == 1){
+            return [
+                'mesaj' => "Bunu yapamazsın.."
+            ];
+        }
         $user->is_admin = $user->is_admin == 1 ? 0:1;
 
         if ($user->save()){

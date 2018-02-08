@@ -15,6 +15,10 @@ use App\Movie;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\CheckAdmin;
 
+// Bot
+
+Route::get('/bot', 'BotController@index');
+
 // LISTELER
 Route::get('/iletisim', 'PagesController@iletisim')->name('iletisim');
 Route::post('/iletisim', 'MesajController@create')->name('iletisim');
@@ -66,6 +70,8 @@ Route::post('/izlendi', 'MovieController@izlendi');
 
 Route::get("/get-videos/{id}", 'MovieController@get_videos');
 
+Route::get('/add-movie-from-tmdb/{tmdb_id}', 'MovieController@addMovieFromTmDB');
+
 Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function()
 {
     Route::get('/', 'AdminController@index');
@@ -83,6 +89,10 @@ Route::group(['prefix' => 'admin',  'middleware' => CheckAdmin::class], function
     Route::post('/video-sil', 'VideoController@delete');
     Route::post('/mesaj-sil', 'MesajController@delete');
     Route::post('/get-mesaj', 'MesajController@getMesaj');
+
+    Route::get('/yorumlar', 'AdminController@yorumlar');
+    Route::get('/yorum-onayla/{comment}', 'AdminController@yorum_onayla');
+    Route::get('/yorum-sil/{comment}', 'AdminController@yorum_sil');
 
     Route::get('/film-ekle', 'AdminController@film_ekle');
     Route::get('/film-edit', 'AdminController@film_edit');

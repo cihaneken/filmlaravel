@@ -32,6 +32,34 @@ class AdminController extends Controller
         return view("admin.index", $data);
     }
 
+    public function yorumlar()
+    {
+        $data = [];
+        $data['filmler'] = Movie::orderBy('name', 'asc')->get();
+        $data['yorumlar'] = Comment::all();
+        $data['id'] = 0;
+        if (isset($_GET['id'])){
+            $data['id'] = $_GET['id'];
+            $data['yorumlar'] = Comment::where('movie_id', $_GET['id'])->get();
+        }
+
+        return view("admin.yorumlar", $data);
+    }
+
+    public function yorum_sil(Comment $comment)
+    {
+        $comment->delete();
+        return back();
+    }
+
+    public function yorum_onayla(Comment $comment)
+    {
+        $comment->is_checked = 1;
+        $comment->save();
+
+        return back();
+    }
+
     public function film_ekle()
     {
         return view("admin.film_ekle");

@@ -45,7 +45,7 @@ class Movie extends Model
     }
     public function comments()
     {
-        return Comment::where('movie_id', $this->id)->orderBy('id', 'desc')->get();
+        return Comment::where('movie_id', $this->id)->where('is_checked', 1)->orderBy('id', 'desc')->get();
     }
     public function name($limit)
     {

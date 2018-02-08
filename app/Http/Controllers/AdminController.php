@@ -36,11 +36,11 @@ class AdminController extends Controller
     {
         $data = [];
         $data['filmler'] = Movie::orderBy('name', 'asc')->get();
-        $data['yorumlar'] = Comment::all();
+        $data['yorumlar'] = Comment::where('is_checked', 0)->get();
         $data['id'] = 0;
         if (isset($_GET['id'])){
             $data['id'] = $_GET['id'];
-            $data['yorumlar'] = Comment::where('movie_id', $_GET['id'])->get();
+            $data['yorumlar'] = Comment::where('movie_id', $_GET['id'])->where('is_checked', 0)->get();
         }
 
         return view("admin.yorumlar", $data);

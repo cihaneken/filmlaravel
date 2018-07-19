@@ -1,7 +1,7 @@
 # filmlaravel
 
 Nasıl kullanırım?
-1. git clone ... ./filmscripti
+1. git clone git@github.com:abdulsametsahin/filmlaravel.git ./filmscripti
 2. cd /filmscripti
 3. composer install
 4. .env.example dosyasını kopyalayıp adını .env olarak değiştir ve veritabanı bilgilerini gir.
